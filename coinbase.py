@@ -1,3 +1,4 @@
+from webbrowser import Chrome
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -29,3 +30,7 @@ def navigate_to_explore(driver: webdriver.Chrome):
         print('Loading timed out.')
     
     return driver
+
+driver = accept_cookies()
+time.sleep(3)
+navigate_to_explore(driver)
