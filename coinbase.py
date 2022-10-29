@@ -6,6 +6,7 @@ import time
 def navigate_to_explore():
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.get("https://www.coinbase.com")
+    driver.maximize_window()
     time.sleep(10)
 
 navigate_to_explore()
