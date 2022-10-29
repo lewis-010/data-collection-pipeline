@@ -42,3 +42,7 @@ if __name__=="__main__":
     driver = accept_cookies()
     navigate_to_explore(driver)
     get_links(driver)
+
+# code for moving to new page 
+# window_after = driver.window_handles[1]
+# driver.switch_to.window(window_after)
