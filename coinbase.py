@@ -24,13 +24,13 @@ def accept_cookies() -> webdriver.Chrome:
 # navigate to the explore page that displays the top 30 coins by market cap
 def navigate_to_explore(driver: webdriver.Chrome):
     try:
-        WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='root']/div/header/header/div[2]/div/div[2]/nav/a[1]"))).click()
+        WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='root']/div/header/div[2]/div/div[2]/nav/a[1]/div/span"))).click()
         time.sleep(3)
     except TimeoutException:
         print('Loading timed out.')
     
     return driver
 
-driver = accept_cookies()
-time.sleep(3)
-navigate_to_explore(driver)
+if __name__=="__main__":
+    driver = accept_cookies()
+    navigate_to_explore(driver)
