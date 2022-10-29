@@ -17,12 +17,4 @@ def accept_cookies():
     except TimeoutException:
         print('Loading timed out.')
 
-# navigates to the explore page on coinbase, displaying the top 30 coins by market-cap
-def navigate_to_explore():
-
-    
-    button = driver.find_element(by=By.XPATH, value='//button[@class="Button-sc-111z0u6-0 iaBuWF"]')
-    button.click()
-    time.sleep(3)
-
-navigate_to_explore()
+accept_cookies()
