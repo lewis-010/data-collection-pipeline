@@ -6,7 +6,8 @@ from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-def accept_cookies():
+# accept cookies on coinbase homepage
+def accept_cookies() -> webdriver.Chrome:
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.get('https://www.coinbase.com')
     driver.maximize_window()
@@ -19,4 +20,12 @@ def accept_cookies():
     
     return driver
 
-accept_cookies()
+# navigate to the explore page that displays the top 30 coins by market cap
+def navigate_to_explore(driver: webdriver.Chrome):
+    try:
+        WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='root']/div/header/header/div[2]/div/div[2]/nav/a[1]"))).click()
+        time.sleep(3)
+    except TimeoutException:
+        print('Loading timed out.')
+    
+    return driver
