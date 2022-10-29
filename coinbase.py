@@ -21,7 +21,7 @@ def accept_cookies() -> webdriver.Chrome:
     
     return driver
 
-# navigate to the explore page that displays the top 30 coins by market-cap
+# navigate to the explore page that displays the top 30 coins by market cap
 def navigate_to_explore(driver: webdriver.Chrome):
     try:
         WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='root']/div/header/div[2]/div/div[2]/nav/a[1]/div/span"))).click()
@@ -31,6 +31,14 @@ def navigate_to_explore(driver: webdriver.Chrome):
     
     return driver
 
+# get links for the top 30 coins by market cap
+def get_links(driver: webdriver.Chrome) -> list:
+    coin = driver.find_element(by=By.XPATH, value="//*[@id='main']/div/div/div[2]/div[3]/div/div[1]/div/div[2]/div/table/tbody/tr[1]") # doesn't work
+    a_tag = coin.find_element(by=By.TAG_NAME, value='a')
+    link = a_tag.get_attribute('href')
+    print(link)
+
 if __name__=="__main__":
     driver = accept_cookies()
     navigate_to_explore(driver)
+    get_links(driver)
