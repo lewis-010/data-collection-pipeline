@@ -13,8 +13,11 @@ def accept_cookies():
     driver.maximize_window()
     time.sleep(3)
     try:
-        WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='root']/div[2]/div[2]/button[2]")))
+        WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='root']/div[2]/div[2]/button[2]"))).click()
+        time.sleep(5)
     except TimeoutException:
         print('Loading timed out.')
+    
+    return driver
 
 accept_cookies()
