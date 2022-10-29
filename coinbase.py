@@ -1,4 +1,3 @@
-from lib2to3.pgen2 import driver
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -14,7 +13,7 @@ def accept_cookies():
     time.sleep(3)
     try:
         WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='root']/div[2]/div[2]/button[2]"))).click()
-        time.sleep(5)
+        time.sleep(3)
     except TimeoutException:
         print('Loading timed out.')
     
