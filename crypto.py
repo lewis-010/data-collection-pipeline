@@ -27,7 +27,7 @@ class Scraper():
         return self.driver
 
     # navigate to the price page that displays the top 50 coins by market cap
-    def navigate_to_explore(self, driver: webdriver.Chrome):
+    def navigate_to_explore(self):
         driver = self.driver
         try:
             WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='gatsby-focus-wrapper']/main/div[1]/div/div/div/div[1]/a/button"))).click()
@@ -40,7 +40,7 @@ class Scraper():
         
 
     # skip the tour of the price page
-    def skip_tour(self, driver: webdriver.Chrome):
+    def skip_tour(self):
         driver = self.driver
         try:
             WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]/div[2]/div[1]/div"))).click()
@@ -51,7 +51,7 @@ class Scraper():
         return self.driver
 
     # get links for the top 50 coins by market cap
-    def get_links(self, driver: webdriver.Chrome) -> list:
+    def get_links(self) -> list:
         driver = self.driver
         table = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
         table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
@@ -63,8 +63,9 @@ class Scraper():
 
         return(links)
 
-crypto = Scraper()
-crypto.accept_cookies()
-crypto.navigate_to_explore()
-crypto.skip_tour()
-crypto.get_links()
+if __name__=="__main__":
+    crypto = Scraper()
+    crypto.accept_cookies()
+    crypto.navigate_to_explore()
+    crypto.skip_tour()
+    crypto.get_links()
