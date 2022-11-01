@@ -45,8 +45,10 @@ def skip_tour(driver: webdriver.Chrome):
 def get_links(driver: webdriver.Chrome) -> list:
     table = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
     table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
-    link = [elem.get_attribute('href') for elem in table]
-    print(link)
+    links = [elem.get_attribute('href') for elem in table]
+    print(links)
+
+    return(links)
 
 driver = accept_cookies()
 navigate_to_explore(driver)
