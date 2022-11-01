@@ -50,9 +50,10 @@ def get_links(driver: webdriver.Chrome) -> list:
 
     return(links)
 
-driver = accept_cookies()
-navigate_to_explore(driver)
-window_after = driver.window_handles[1]
-driver.switch_to.window(window_after)
-skip_tour(driver)
-get_links(driver)
+if __name__=="__main__":
+    driver = accept_cookies()
+    navigate_to_explore(driver) 
+    driver.switch_to.window(driver.window_handles[1]) # swtich to latest window
+    skip_tour(driver)
+    get_links(driver)
+    driver.quit()
