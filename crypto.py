@@ -43,9 +43,9 @@ def skip_tour(driver: webdriver.Chrome):
 
 # get links for the top 50 coins by market cap
 def get_links(driver: webdriver.Chrome) -> list:
-    coin = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
-    coin = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
-    link = [elem.get_attribute('href') for elem in coin]
+    table = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
+    table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
+    link = [elem.get_attribute('href') for elem in table]
     print(link)
 
 driver = accept_cookies()
