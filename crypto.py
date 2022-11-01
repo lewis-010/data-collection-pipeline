@@ -21,4 +21,15 @@ def accept_cookies() -> webdriver.Chrome:
     
     return driver
 
-accept_cookies()
+# navigate to the price page that displays the top 30 coins by market cap
+def navigate_to_explore(driver: webdriver.Chrome):
+    try:
+        WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='gatsby-focus-wrapper']/main/div[1]/div/div/div/div[1]/a/button"))).click()
+        time.sleep(3)
+    except TimeoutException:
+        print('Loading timed out.')
+    
+    return driver
+
+driver = accept_cookies()
+navigate_to_explore(driver)
