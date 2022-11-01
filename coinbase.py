@@ -38,6 +38,9 @@ def get_links(driver: webdriver.Chrome) -> list:
     link = a_tag.get_attribute('href')
     print(link)
 
+# unable to find a method to get links for the pages on individual coins
+# links open in a new page so have no <a> tags or href's
+
 if __name__=="__main__":
     driver = accept_cookies()
     navigate_to_explore(driver)
