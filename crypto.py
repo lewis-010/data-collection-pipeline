@@ -1,3 +1,4 @@
+from this import d
 from webbrowser import Chrome
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -41,18 +42,8 @@ def skip_tour(driver: webdriver.Chrome):
     
     return driver
 
-# get rid of advert at the top of page
-def remove_ad(driver: webdriver.Chrome):
-    try:
-        WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='__next']/div[1]/div[1]/svg/path"))).click()
-        time.sleep(3)
-    except TimeoutException:
-        print('Loading timed out.')
-    
-    return driver
-
 # get links for the top 50 coins by market cap
-# def get_links(driver: webdriver.Chrome) -> list:
+def get_links(driver: webdriver.Chrome) -> list:
     WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]/div/div[3]/div[3]/table/tbody/tr[1]/td[3]/a")))
     time.sleep(3)
     coin = driver.find_element(by=By.XPATH, value="//*[@id='__next']/div[3]/div[2]/div/div[3]/div[3]/table/tbody/tr[1]/td[3]/a")
@@ -60,10 +51,7 @@ def remove_ad(driver: webdriver.Chrome):
     link = a_tag.get_attribute('href')
     print(link)
 
-# def get_links(driver: webdriver.Chrome) -> list:
-    elements = driver.find_elements(by=By.XPATH("//table[@class='chakra-table css-1qpk7f7']//td/a"))
-    for elements in elements:
-        print(elements.get_attribute("href"))
+
 
 driver = accept_cookies()
 navigate_to_explore(driver)
