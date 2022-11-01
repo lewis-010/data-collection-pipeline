@@ -1,4 +1,3 @@
-from this import d
 from webbrowser import Chrome
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -44,14 +43,10 @@ def skip_tour(driver: webdriver.Chrome):
 
 # get links for the top 50 coins by market cap
 def get_links(driver: webdriver.Chrome) -> list:
-    WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]/div/div[3]/div[3]/table/tbody/tr[1]/td[3]/a")))
-    time.sleep(3)
-    coin = driver.find_element(by=By.XPATH, value="//*[@id='__next']/div[3]/div[2]/div/div[3]/div[3]/table/tbody/tr[1]/td[3]/a")
-    a_tag = coin.find_element(by=By.TAG_NAME, value='a')
-    link = a_tag.get_attribute('href')
+    coin = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
+    coin = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
+    link = [elem.get_attribute('href') for elem in coin]
     print(link)
-
-
 
 driver = accept_cookies()
 navigate_to_explore(driver)
