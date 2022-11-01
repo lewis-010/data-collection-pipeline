@@ -33,3 +33,5 @@ def navigate_to_explore(driver: webdriver.Chrome):
 
 driver = accept_cookies()
 navigate_to_explore(driver)
+window_after = driver.window_handles[1]
+driver.switch_to.window(window_after)
