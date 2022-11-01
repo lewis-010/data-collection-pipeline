@@ -10,13 +10,15 @@ import time
 # accept cookies on coinmarket homepage
 def accept_cookies() -> webdriver.Chrome:
     driver = webdriver.Chrome(ChromeDriverManager().install())
-    driver.get('https://coinmarketcap.com/')
+    driver.get('https://crypto.com/eea')
     driver.maximize_window()
     time.sleep(3)
     try:
-        WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='cmc-cookie-policy-banner']/div[2]"))).click()
+        WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='onetrust-accept-btn-handler']"))).click()
         time.sleep(3)
     except TimeoutException:
         print('Loading timed out.')
     
     return driver
+
+accept_cookies()
