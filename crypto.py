@@ -9,9 +9,9 @@ import time
 
 class Scraper():
     def __init__(self):
-        self.link_number = 0
+        self.link_number = 0 # number of links that will be taken from the webpage
 
-    # accept cookies on coinmarket homepage
+    # accept cookies on crypto.com homepage
     def accept_cookies(self) -> webdriver.Chrome:
         driver = webdriver.Chrome(ChromeDriverManager().install())
         driver.get('https://crypto.com/eea')
@@ -25,7 +25,7 @@ class Scraper():
         
         return driver
 
-    # navigate to the price page that displays the top 30 coins by market cap
+    # navigate to the price page that displays the top 50 coins by market cap
     def navigate_to_explore(self, driver: webdriver.Chrome):
         try:
             WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='gatsby-focus-wrapper']/main/div[1]/div/div/div/div[1]/a/button"))).click()
@@ -69,6 +69,6 @@ class Scraper():
 
 crypto = Scraper()
 crypto.accept_cookies()
-crypto.navigate_to_explore(webdriver.Chrome)
-crypto.skip_tour(webdriver.Chrome)
-crypto.get_links(webdriver.Chrome)
+crypto.navigate_to_explore()
+crypto.skip_tour()
+crypto.get_links()
