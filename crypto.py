@@ -11,7 +11,7 @@ class Scraper():
     def __init__(self):
         self.link_number = 0 # number of links that will be taken from the webpage
         self.driver = webdriver.Chrome(ChromeDriverManager().install())    
-
+ 
     # accept cookies on crypto.com homepage
     def accept_cookies(self) -> webdriver.Chrome:
         driver = self.driver
@@ -37,7 +37,6 @@ class Scraper():
             print('Loading timed out.')
         
         return self.driver
-        
 
     # skip the tour of the price page
     def skip_tour(self):
