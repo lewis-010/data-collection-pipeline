@@ -27,7 +27,7 @@ class Scraper():
         return self.driver
 
     # navigate to the price page that displays the top 50 coins by market cap
-    def navigate_to_explore(self):
+    def navigate_to_prices(self):
         driver = self.driver
         try:
             WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='gatsby-focus-wrapper']/main/div[1]/div/div/div/div[1]/a/button"))).click()
@@ -65,6 +65,6 @@ class Scraper():
 if __name__=="__main__":
     crypto = Scraper()
     crypto.accept_cookies()
-    crypto.navigate_to_explore()
+    crypto.navigate_to_prices()
     crypto.skip_tour()
     crypto.get_links()
