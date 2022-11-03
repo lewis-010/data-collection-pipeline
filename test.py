@@ -53,6 +53,14 @@ def get_links(driver: webdriver.Chrome) -> list:
 
     return(links)
 
+def get_data(driver: webdriver.Chrome, link):
+    dict_data={}
+    driver.get(link)
+    
+    return dict_data
+
+
+
 if __name__=="__main__":
     driver = accept_cookies()
     navigate_to_explore(driver) 
