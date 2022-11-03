@@ -49,7 +49,6 @@ def get_links(driver: webdriver.Chrome) -> list:
     links = [elem.get_attribute('href') for elem in table]
     print(links)
     print(f"There are {len(links)} links.")
-    driver.quit()
 
     return(links)
 
@@ -59,11 +58,18 @@ def get_data(driver: webdriver.Chrome, link):
     market_cap = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[1]/p").text
     print(market_cap)
 
+    return dict_data
+
 if __name__=="__main__":
     driver = accept_cookies()
     navigate_to_explore(driver) 
     driver.switch_to.window(driver.window_handles[1]) # swtich to latest window
     skip_tour(driver)
-    get_links(driver)
-    get_data(driver)
+    big_list =[]
+    big_list.extend(get_links(driver))
+    coin_list = []
+    for i in range(50):
+        c_link = big_list[i]
+        coin = get_data(driver, link= c_link)
+        coin_list.append(coin)
     driver.quit()
