@@ -55,7 +55,7 @@ def get_links(driver: webdriver.Chrome) -> list:
 def get_data(driver: webdriver.Chrome, link):
     dict_data={}
     driver.get(link)
-    market_cap = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[1]/p").text
+    market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
     print(market_cap)
 
     return dict_data
@@ -68,8 +68,8 @@ if __name__=="__main__":
     big_list =[]
     big_list.extend(get_links(driver))
     coin_list = []
-    for i in range(50):
+    for i in range():
         c_link = big_list[i]
-        coin = get_data(driver, link= c_link)
+        coin = get_data(driver, link=c_link)
         coin_list.append(coin)
     driver.quit()
