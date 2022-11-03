@@ -56,13 +56,14 @@ def get_data(driver: webdriver.Chrome, link):
     dict_data={}
     driver.get(link)
     market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
-    dict_data['market cap'].append(market_cap)
-    volume =  driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[2]/p").text
-    dict_data['24H volume'].append(volume)
+    dict_data['market_cap'] = market_cap
+    volume =  driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
     print(volume)
 
-
     return dict_data
+
+#__next > div.css-bl4fde > div > div > div.css-1f1k94j > div.css-9xp0oz > div.chakra-stack.coin-chart.css-5we3l5 > div.css-1y4us2f > div:nth-child(2) > p
+#__next > div.css-bl4fde > div > div > div.css-1f1k94j > div.css-9xp0oz > div.chakra-stack.coin-chart.css-5we3l5 > div.css-1y4us2f > div:nth-child(1) > p
 
 if __name__=="__main__":
     driver = accept_cookies()
