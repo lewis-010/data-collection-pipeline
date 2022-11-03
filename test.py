@@ -65,10 +65,10 @@ if __name__=="__main__":
     navigate_to_explore(driver) 
     driver.switch_to.window(driver.window_handles[1]) # swtich to latest window
     skip_tour(driver)
-    big_list =[]
+    big_list = []
     big_list.extend(get_links(driver))
     coin_list = []
-    for i in range():
+    for i in range(50):
         c_link = big_list[i]
         coin = get_data(driver, link=c_link)
         coin_list.append(coin)
