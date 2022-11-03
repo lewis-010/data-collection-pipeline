@@ -56,10 +56,8 @@ def get_links(driver: webdriver.Chrome) -> list:
 def get_data(driver: webdriver.Chrome, link):
     dict_data={}
     driver.get(link)
-    
-    return dict_data
-
-
+    market_cap = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[1]/p").text
+    print(market_cap)
 
 if __name__=="__main__":
     driver = accept_cookies()
@@ -67,4 +65,5 @@ if __name__=="__main__":
     driver.switch_to.window(driver.window_handles[1]) # swtich to latest window
     skip_tour(driver)
     get_links(driver)
+    get_data(driver)
     driver.quit()
