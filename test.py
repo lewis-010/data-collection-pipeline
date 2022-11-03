@@ -56,7 +56,11 @@ def get_data(driver: webdriver.Chrome, link):
     dict_data={}
     driver.get(link)
     market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
-    print(market_cap)
+    dict_data['market cap'].append(market_cap)
+    volume =  driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[2]/p").text
+    dict_data['24H volume'].append(volume)
+    print(volume)
+
 
     return dict_data
 
