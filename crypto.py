@@ -93,11 +93,8 @@ if __name__=="__main__":
     crypto.skip_tour()
     link_list = []
     link_list.extend(crypto.get_links())
-    data_dict = {}
+    data_list = []
     for i in range(50):
         coin_link = link_list[i]
         coin = crypto.get_data(link=coin_link)
-        data_dict.update(coin)
-
-print(data_dict)
-
+        data_list.append(coin)
