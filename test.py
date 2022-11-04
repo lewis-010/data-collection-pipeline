@@ -55,10 +55,10 @@ def get_links(driver: webdriver.Chrome) -> list:
 def get_data(driver: webdriver.Chrome, link):
     dict_data={}
     driver.get(link)
-    market_cap = driver.find_element(by=By.CSS_SELECTOR, value = "div.css-b14fdef#__next p:nth-child(1)").text
+    market_cap = driver.find_element(by=By.CSS_SELECTOR, value = "div.css-1y4us2f#card-container p:nth-of-type(1)").text
     dict_data['market cap'] = market_cap
     print(market_cap)
-    volume =  driver.find_element(by=By.CSS_SELECTOR, value = "div.css-b14fde#__next p:nth-child(2)").text
+    volume =  driver.find_element(by=By.CSS_SELECTOR, value = "div.css-css-1y4us2f#card-container p:nth-of-type(2)").text
     dict_data["24H volume"] = volume
     print(volume)
 
@@ -66,9 +66,7 @@ def get_data(driver: webdriver.Chrome, link):
 
 #__next > div.css-bl4fde > div > div > div.css-1f1k94j > div.css-9xp0oz > div.chakra-stack.coin-chart.css-5we3l5 > div.css-1y4us2f > div:nth-child(2) > p
 #__next > div.css-bl4fde > div > div > div.css-1f1k94j > div.css-9xp0oz > div.chakra-stack.coin-chart.css-5we3l5 > div.css-1y4us2f > div:nth-child(1) > p
-
-#__next > div.css-bl4fde > div > div > div.css-1f1k94j > div.css-9xp0oz > div.chakra-stack.coin-chart.css-5we3l5 > div.css-1y4us2f > div:nth-child(1) > p
-#__next > div.css-bl4fde > div > div > div.css-1f1k94j > div.css-9xp0oz > div.chakra-stack.coin-chart.css-5we3l5 > div.css-1y4us2f > div:nth-child(1) > p
+#__next > div.css-bl4fde > div > div > div.css-1f1k94j > div.css-9xp0oz > div.chakra-stack.coin-chart.css-5we3l5 > div.css-1y4us2f > div:nth-child(3) > p
 
 if __name__=="__main__":
     driver = accept_cookies()
