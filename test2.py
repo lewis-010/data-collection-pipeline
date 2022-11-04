@@ -55,14 +55,19 @@ def get_links(driver: webdriver.Chrome) -> list:
 def get_data(driver: webdriver.Chrome, link):
     dict_data={}
     driver.get(link)
-    market_cap = ((driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[1]/p")).text) or ((driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[4]/div[1]/p")).text)
-    dict_data['market cap'] = market_cap
-    print(market_cap)
-    volume = ((driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[2]/p")).text) or ((driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[4]/div[2]/p")).text) 
-    dict_data["24H volume"] = volume
-    print(volume)
+    #market_cap = driver.find_element(by=By.XPATH, value = "//*[@id='_next']/div[2]/div/div/div/div[2]/dl/dd").text 
+    #dict_data['market cap'] = market_cap
+    #print(market_cap)
+    #volume = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[2]/div/div/div/div[4]/dl/dd").text 
+    #dict_data["24H volume"] = volume
+    #print(volume)
+    #WebDriverWait(driver,5).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".css-1arpw5g")))
+    price = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/h2/span").text
+    dict_data['price'] = price
+    print(price) 
 
     return dict_data
+    
 
 if __name__=="__main__":
     driver = accept_cookies()
