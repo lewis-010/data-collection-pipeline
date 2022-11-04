@@ -26,6 +26,7 @@ class Scraper():
         
         return self.driver
 
+
     # navigate to the price page that displays the top 50 coins by market cap
     def navigate_to_prices(self):
         driver = self.driver
@@ -38,6 +39,7 @@ class Scraper():
         
         return self.driver
 
+
     # skip the tour of the price page
     def skip_tour(self):
         driver = self.driver
@@ -48,6 +50,7 @@ class Scraper():
             print('Loading timed out.')
         
         return self.driver
+
 
     # get links for the top 50 coins by market cap
     def get_links(self) -> list:
@@ -61,6 +64,26 @@ class Scraper():
         driver.quit()
 
         return(links)
+
+    def get_data(self, link):
+        driver = self.driver
+        dict_data={}
+        driver.get(link)
+        market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
+        dict_data['market cap'] = market_cap
+        print(market_cap)
+        time.sleep(1)
+        price = str(driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/h2/span").text)
+        new_price = price.replace("USD","")
+        dict_data['price'] = new_price  
+        print(new_price)
+        time.sleep(1)
+        change = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").text
+        dict_data['24H change'] = change
+        print(change)
+
+        return dict_data
+        
 
 if __name__=="__main__":
     crypto = Scraper()
