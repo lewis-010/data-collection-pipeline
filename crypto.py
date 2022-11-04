@@ -33,7 +33,7 @@ class Scraper():
         try:
             WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='gatsby-focus-wrapper']/main/div[1]/div/div/div/div[1]/a/button"))).click()
             time.sleep(3)
-            driver.switch_to.window(driver.window_handles[1])
+            driver.switch_to.window(driver.window_handles[1]) # switch to new window (shows top 50 coins)
         except TimeoutException:
             print('Loading timed out.')
         
@@ -61,9 +61,8 @@ class Scraper():
         print(links)
         self.link_number = len(links)
         print(f"There are {self.link_number} links.")
-        driver.quit()
 
-        return(links)
+        return links
 
     def get_data(self, link):
         driver = self.driver
@@ -83,11 +82,17 @@ class Scraper():
         print(change)
 
         return dict_data
-        
+
 
 if __name__=="__main__":
     crypto = Scraper()
     crypto.accept_cookies()
     crypto.navigate_to_prices()
     crypto.skip_tour()
-    crypto.get_links()
+    link_list = []
+    link_list.extend(crypto.get_links())
+    data_list = []
+    for i in range(50):
+        coin_link = link_list[i]
+        coin = crypto.get_data(link=coin_link)
+        data_list.append(coin)
