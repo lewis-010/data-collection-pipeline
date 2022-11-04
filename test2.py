@@ -51,6 +51,7 @@ def get_links(driver: webdriver.Chrome) -> list:
     print(f"There are {len(links)} links.")
     return(links)
 
+# get market cap and 24H volume data
 def get_data(driver: webdriver.Chrome, link):
     dict_data={}
     driver.get(link)
