@@ -54,10 +54,10 @@ def get_links(driver: webdriver.Chrome) -> list:
 def get_data(driver: webdriver.Chrome, link):
     dict_data={}
     driver.get(link)
-    market_cap = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[1]/p" or "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[4]/div[1]/p").text
+    market_cap = ((driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[1]/p")).text) or ((driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[4]/div[1]/p")).text)
     dict_data['market cap'] = market_cap
     print(market_cap)
-    volume = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[2]/p" or "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[4]/div[2]/p").text 
+    volume = ((driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[3]/div[2]/p")).text) or ((driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[4]/div[2]/p")).text) 
     dict_data["24H volume"] = volume
     print(volume)
 
