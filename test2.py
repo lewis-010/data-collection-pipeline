@@ -18,7 +18,6 @@ def accept_cookies() -> webdriver.Chrome:
         time.sleep(3)
     except TimeoutException:
         print('Loading timed out.')
-    
     return driver
 
 # navigate to the price page that displays the top 50 coins by market cap
@@ -28,7 +27,6 @@ def navigate_to_explore(driver: webdriver.Chrome):
         time.sleep(3)
     except TimeoutException:
         print('Loading timed out.')
-    
     return driver
     
 
@@ -39,8 +37,8 @@ def skip_tour(driver: webdriver.Chrome):
         time.sleep(3)
     except TimeoutException:
         print('Loading timed out.')
-    
     return driver
+
 
 # get links for the top 50 coins by market cap
 def get_links(driver: webdriver.Chrome) -> list:
@@ -61,17 +59,20 @@ def get_data(driver: webdriver.Chrome, link):
     #volume = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[2]/div/div/div/div[4]/dl/dd").text 
     #dict_data["24H volume"] = volume
     #print(volume)
+
     price = str(driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/h2/span").text)
     new_price = price.replace("USD","")
     dict_data['price'] = new_price  
     print(new_price)
+    
+    time.sleep(1)
 
     volume = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").text
     dict_data['24H volume'] = volume
     print(volume)
 
     return dict_data
-    
+
 
 if __name__=="__main__":
     driver = accept_cookies()
