@@ -82,3 +82,6 @@ if __name__=="__main__":
         coin = get_data(driver, link=c_link)
         coin_list.append(coin)
     driver.quit()
+
+print(coin)
+print(coin_list)
