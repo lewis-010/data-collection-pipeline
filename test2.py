@@ -61,13 +61,17 @@ def get_data(driver: webdriver.Chrome, link):
     #volume = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[2]/div/div/div/div[4]/dl/dd").text 
     #dict_data["24H volume"] = volume
     #print(volume)
-    #WebDriverWait(driver,5).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".css-1arpw5g")))
-    price = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/h2/span").text
-    dict_data['price'] = price
-    print(price) 
+    price = str(driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/h2/span").text)
+    new_price = price.replace("USD","")
+    dict_data['price'] = new_price  
+    print(new_price)
+
+    volume = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").text
+    dict_data['24H volume'] = volume
+    print(volume)
 
     return dict_data
-    
+
 
 if __name__=="__main__":
     driver = accept_cookies()
