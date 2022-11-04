@@ -47,7 +47,7 @@ def get_links(driver: webdriver.Chrome) -> list:
     links = [elem.get_attribute('href') for elem in table]
     print(links)
     print(f"There are {len(links)} links.")
-    return(links)
+    return links
 
 # get market cap and 24H volume data
 def get_data(driver: webdriver.Chrome, link):
