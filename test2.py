@@ -71,7 +71,7 @@ def get_data(driver: webdriver.Chrome, link):
     print(volume)
 
     return dict_data
-
+    
 
 if __name__=="__main__":
     driver = accept_cookies()
