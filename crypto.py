@@ -64,6 +64,7 @@ class Scraper():
 
         return links
 
+    # get data for market cap, price and 24 change for each coin
     def get_data(self, link):
         driver = self.driver
         dict_data={}
@@ -84,6 +85,7 @@ class Scraper():
         return dict_data
 
 
+# call all methods and iterate through the list of links
 if __name__=="__main__":
     crypto = Scraper()
     crypto.accept_cookies()
