@@ -82,6 +82,7 @@ class Scraper():
         dict_data['24H change'] = change
         print(change)
 
+        print(dict_data)
         return dict_data
 
 
@@ -99,11 +100,11 @@ if __name__=="__main__":
         coin = crypto.get_data(link=coin_link)
         data_list.append(coin)
 
-print(coin)
-print(data_list)
+# print(coin)
+# print(data_list)
 
-data_dict = {}
-for coin in data_list:
-    data_dict.update(coin)
+# data_dict = {}
+# for coin in data_list:
+    # data_dict.update(coin)
 
-data_dict
+# print(data_dict)
