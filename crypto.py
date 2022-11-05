@@ -67,7 +67,7 @@ class Scraper():
     # get data for market cap, price and 24 change for each coin
     def get_data(self, link):
         driver = self.driver
-        dict_data={}
+        dict_data = {}
         driver.get(link)
         market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
         dict_data['market cap'] = market_cap
@@ -82,9 +82,11 @@ class Scraper():
         dict_data['24H change'] = change
         print(change)
 
-        print(dict_data)
         return dict_data
 
+    def quit(self):
+        driver = self.driver
+        driver.quit()
 
 # call all methods and iterate through the list of links
 if __name__=="__main__":
@@ -99,12 +101,12 @@ if __name__=="__main__":
         coin_link = link_list[i]
         coin = crypto.get_data(link=coin_link)
         data_list.append(coin)
+    crypto.quit()
 
-# print(coin)
-# print(data_list)
+print(data_list)
 
-# data_dict = {}
-# for coin in data_list:
-    # data_dict.update(coin)
+data_dict = {}
+for k in data_list:
+    data_dict[k] = [d[k] for d in data_list]
 
-# print(data_dict)
+print(data_dict)
