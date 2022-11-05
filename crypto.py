@@ -103,10 +103,10 @@ if __name__=="__main__":
         data_list.append(coin)
     crypto.quit()
 
-print(data_list)
+# print(data_list)
 
 data_dict = {}
-for k in data_list:
+for k in data_list[0]:
     data_dict[k] = [d[k] for d in data_list]
 
 print(data_dict)
