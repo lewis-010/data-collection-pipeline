@@ -108,6 +108,7 @@ if __name__=="__main__":
         data_list.append(coin)
     crypto.quit()
 
+# print list of dicts on new line
 print(*data_list, sep = "\n")
 
 # data_dict = {}
