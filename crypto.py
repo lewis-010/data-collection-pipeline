@@ -69,9 +69,9 @@ class Scraper():
         driver = self.driver
         dict_data = {}
         driver.get(link)
-        crypto  = driver.find_element(by=By.CSS_SELECTOR, value = "").text
-        dict_data['crytpo'] = crypto
-        print(market_cap)
+        # crypto  = driver.find_element(by=By.CSS_SELECTOR, value = "").text
+        # dict_data['crytpo'] = crypto
+        # print(crypto)
         market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
         dict_data['market cap'] = market_cap
         print(market_cap)
@@ -108,10 +108,10 @@ if __name__=="__main__":
         data_list.append(coin)
     crypto.quit()
 
-# print(data_list)
+print(data_list = "\n")
 
-data_dict = {}
-for k in data_list[0]:
-    data_dict[k] = [d[k] for d in data_list]
+# data_dict = {}
+# for k in data_list[0]:
+    # data_dict[k] = [d[k] for d in data_list]
 
-print(data_dict)
+# print(data_dict)
