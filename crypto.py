@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+from datetime import datetime
 
 class Scraper():
     def __init__(self):
@@ -64,14 +65,14 @@ class Scraper():
 
         return links
 
-    # get data for crypto name, market cap, price and 24 change
+    # get data for crypto ID, market cap, price and 24 change
     def get_data(self, link):
         driver = self.driver
         dict_data = {}
         driver.get(link)
         ID  = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1xvru47").text
         dict_data['ID'] = ID
-        print(crypto)
+        print(ID)
         market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
         dict_data['market cap'] = market_cap
         print(market_cap)
@@ -84,6 +85,10 @@ class Scraper():
         change = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").text
         dict_data['24H change'] = change
         print(change)
+    
+        timestamp = datetime.now()
+        dict_data['timestamp'] = timestamp
+
 
         return dict_data
 
