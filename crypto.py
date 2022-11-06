@@ -108,7 +108,7 @@ if __name__=="__main__":
         data_list.append(coin)
     crypto.quit()
 
-print(data_list = "\n")
+print(*data_list, sep = "\n")
 
 # data_dict = {}
 # for k in data_list[0]:
