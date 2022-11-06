@@ -69,9 +69,9 @@ class Scraper():
         driver = self.driver
         dict_data = {}
         driver.get(link)
-        # crypto  = driver.find_element(by=By.CSS_SELECTOR, value = "").text
-        # dict_data['crytpo'] = crypto
-        # print(crypto)
+        crypto  = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1xvru47").text
+        dict_data['crytpo'] = crypto
+        print(crypto)
         market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
         dict_data['market cap'] = market_cap
         print(market_cap)
@@ -87,7 +87,6 @@ class Scraper():
 
         return dict_data
 
-        # SHOULD I SAVE DATA AS A LIST OF DICTIONARIES OR 1 DICTIONARY
 
     def quit(self):
         driver = self.driver
@@ -111,6 +110,8 @@ if __name__=="__main__":
 # print list of dicts on new line
 print(*data_list, sep = "\n")
 
+
+# merges the list of dicts into one dictionary
 # data_dict = {}
 # for k in data_list[0]:
     # data_dict[k] = [d[k] for d in data_list]
