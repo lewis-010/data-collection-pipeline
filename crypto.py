@@ -69,8 +69,8 @@ class Scraper():
         driver = self.driver
         dict_data = {}
         driver.get(link)
-        crypto  = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1xvru47").text
-        dict_data['crytpo'] = crypto
+        ID  = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1xvru47").text
+        dict_data['ID'] = ID
         print(crypto)
         market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
         dict_data['market cap'] = market_cap
