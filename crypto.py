@@ -1,4 +1,3 @@
-from webbrowser import Chrome
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -6,7 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 import time
-from datetime import datetime
+# from datetime import datetime
+import datetime
 
 class Scraper():
     def __init__(self):
@@ -87,7 +87,7 @@ class Scraper():
         print(change)
 
         # include timestamp in each dict
-        timestamp = datetime.now()
+        timestamp = (datetime.datetime.now()).strftime('%Y-%m-%dT%H:%M:%S')
         dict_data['timestamp'] = timestamp
 
 
