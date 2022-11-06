@@ -87,6 +87,8 @@ class Scraper():
 
         return dict_data
 
+        # SHOULD I SAVE DATA AS A LIST OF DICTIONARIES OR 1 DICTIONARY
+
     def quit(self):
         driver = self.driver
         driver.quit()
