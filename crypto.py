@@ -85,7 +85,8 @@ class Scraper():
         change = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").text
         dict_data['24H change'] = change
         print(change)
-    
+
+        # include timestamp in each dict
         timestamp = datetime.now()
         dict_data['timestamp'] = timestamp
 
