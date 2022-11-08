@@ -15,3 +15,9 @@ This project will focus on the data collection aspect of a chosen website, [Cryt
 
 ## Milestone 2
 - The most efficient way to scrape data from each of the cryptocurrencies would be to iterate through a list of links for the details page of each coin.
+- The top 50 coins by market cap are displayed on the price page (already navigate to) and each contain an href attribute that specifies the URL of the details page for each coin.
+- A method was created to scrape these links and put them into a list using Selenium's *find_elements* and* *get_attribute* features.
+```Python
+table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
+links = [elem.get_attribute('href') for elem in table]
+```
