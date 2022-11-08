@@ -6,6 +6,7 @@ from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import datetime
+import json
 
 class Scraper():
     def __init__(self):
@@ -112,6 +113,10 @@ if __name__=="__main__":
 
 # print list of dicts on new line
 print(*data_list, sep = "\n")
+
+# save list of dictts to raw_data folder
+with open("C:\Users\lcox1\Documents\VSCode\AiCore\Data collection\raw_datadata.json", "w+") as f:
+    json.dump(data_list, f)
 
 
 # merges the list of dicts into one dictionary
