@@ -35,8 +35,6 @@ class Scraper():
         except TimeoutException:
             print('Loading timed out.')
 
-
-    # navigate to the price page that displays the top 50 coins by market cap
     def navigate_to_prices(self):
         '''Clicks the 'prices' tab on the crypo.com homepage to display the top 50 coins by market cap'''
         driver = self.driver
@@ -47,8 +45,6 @@ class Scraper():
         except TimeoutException:
             print('Loading timed out.')
 
-
-    # skip the tour of the price page
     def skip_tour(self):
         '''Clicks the 'skip tour' button on the price page to allow the webdriver to continue'''
         driver = self.driver
@@ -57,9 +53,7 @@ class Scraper():
             time.sleep(3)
         except TimeoutException:
             print('Loading timed out.')
-        
 
-    # get links for the top 50 coins by market cap
     def get_list_of_coin_links(self) -> list:
         '''
         Gets the links for the top 50 coins by market cap
@@ -80,7 +74,6 @@ class Scraper():
         return links
 
 
-    # get data for crypto ID, market cap, price and 24 change
     def get_data(self, link):
         '''
         Gets specific data the coins included in the list of links previously scraped
@@ -114,7 +107,6 @@ class Scraper():
         change = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").text
         dict_data['24H change'] = change
         print(change)
-        # include timestamp in each dict
         timestamp = (datetime.datetime.now()).strftime('%Y-%m-%dT%H:%M:%S')
         dict_data['timestamp'] = timestamp
 
@@ -122,18 +114,17 @@ class Scraper():
 
 
     def quit(self):
+        '''Closes the browser window and stops the webdriver from running'''
         driver = self.driver
         driver.quit()
 
-
-# call all methods and iterate through the list of links
 if __name__=="__main__":
     crypto = Scraper()
     crypto.accept_cookies()
     crypto.navigate_to_prices()
     crypto.skip_tour()
     link_list = []
-    link_list.extend(crypto.get_list_of_coin_links())
+    link_list.extend(crypto.get_list_of_coin_links()) # list of links to top 50 coins by market cap
     data_list = []
     for link in range(50):
         coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
@@ -144,6 +135,6 @@ if __name__=="__main__":
     # print list of dicts on new line
     print(*data_list, sep = "\n")
 
-    # save list of dictts to raw_data folder
+    # save list of dicts to raw_data folder
     with open("raw_data/data.json", "w") as file:
         json.dump(data_list, file, indent=2)        
