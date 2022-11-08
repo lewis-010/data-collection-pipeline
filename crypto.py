@@ -65,6 +65,7 @@ class Scraper():
 
         return links
 
+
     # get data for crypto ID, market cap, price and 24 change
     def get_data(self, link):
         driver = self.driver
@@ -95,6 +96,7 @@ class Scraper():
     def quit(self):
         driver = self.driver
         driver.quit()
+
 
 # call all methods and iterate through the list of links
 if __name__=="__main__":
