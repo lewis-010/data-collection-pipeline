@@ -1,11 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
-import time
 import datetime
+import time
 import json
 
 class Scraper():
@@ -24,8 +24,6 @@ class Scraper():
             time.sleep(3)
         except TimeoutException:
             print('Loading timed out.')
-        
-        return self.driver
 
 
     # navigate to the price page that displays the top 50 coins by market cap
@@ -37,8 +35,6 @@ class Scraper():
             driver.switch_to.window(driver.window_handles[1]) # switch to new window (shows top 50 coins)
         except TimeoutException:
             print('Loading timed out.')
-        
-        return self.driver
 
 
     # skip the tour of the price page
@@ -50,11 +46,9 @@ class Scraper():
         except TimeoutException:
             print('Loading timed out.')
         
-        return self.driver
-
 
     # get links for the top 50 coins by market cap
-    def get_links(self) -> list:
+    def get_list_of_coin_links(self) -> list:
         driver = self.driver
         table = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
         table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
@@ -105,7 +99,7 @@ if __name__=="__main__":
     crypto.navigate_to_prices()
     crypto.skip_tour()
     link_list = []
-    link_list.extend(crypto.get_links())
+    link_list.extend(crypto.get_list_of_coin_links())
     data_list = []
     for i in range(50):
         coin_link = link_list[i]
@@ -119,11 +113,3 @@ print(*data_list, sep = "\n")
 # save list of dictts to raw_data folder
 with open("raw_data/data.json", "w") as f:
     json.dump(data_list, f, sep = "\n")
-
-
-# merges the list of dicts into one dictionary
-# data_dict = {}
-# for k in data_list[0]:
-    # data_dict[k] = [d[k] for d in data_list]
-
-# print(data_dict)
