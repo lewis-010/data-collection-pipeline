@@ -107,9 +107,9 @@ if __name__=="__main__":
         data_list.append(coin)
     crypto.quit()
 
-# print list of dicts on new line
-print(*data_list, sep = "\n")
+    # print list of dicts on new line
+    print(*data_list, sep = "\n")
 
-# save list of dictts to raw_data folder
-with open("raw_data/data.json", "w") as f:
-    json.dump(data_list, f, sep = "\n")
+    # save list of dictts to raw_data folder
+    with open("raw_data/data.json", "w") as f:
+        json.dump(data_list, f, sep = "\n")
