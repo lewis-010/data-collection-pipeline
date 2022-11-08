@@ -101,8 +101,8 @@ if __name__=="__main__":
     link_list = []
     link_list.extend(crypto.get_list_of_coin_links())
     data_list = []
-    for i in range(50):
-        coin_link = link_list[i]
+    for link in range(50):
+        coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
         coin = crypto.get_data(link=coin_link)
         data_list.append(coin)
     crypto.quit()
