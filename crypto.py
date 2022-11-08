@@ -117,7 +117,7 @@ if __name__=="__main__":
 print(*data_list, sep = "\n")
 
 # save list of dictts to raw_data folder
-with open("C:\Users\lcox1\Documents\VSCode\AiCore\Data collection\raw_datadata.json", "w+") as f:
+with open("raw_data/data.json", "w") as f:
     json.dump(data_list, f)
 
 
