@@ -21,3 +21,13 @@ This project will focus on the data collection aspect of a chosen website, [Cryt
 table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
 links = [elem.get_attribute('href') for elem in table]
 ```
+
+## Milestone 3
+- With a list of links created, a method to collect the data from these links was written.
+- A list of dictionaries for each coin containing the data points mentioned earlier was created as the output for this method.
+- Each data point has its own XPATH within the HTML, however, for some of the pages in the list, this XPATH was slightly different.
+- Therefore, for some most of the data points, the CSS_SELECTOR was used as the locator as this didn't differ between any of the links. 
+```Python
+market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
+dict_data['market cap'] = market_cap
+```
