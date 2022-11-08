@@ -88,7 +88,6 @@ class Scraper():
         timestamp = (datetime.datetime.now()).strftime('%Y-%m-%dT%H:%M:%S')
         dict_data['timestamp'] = timestamp
 
-
         return dict_data
 
 
