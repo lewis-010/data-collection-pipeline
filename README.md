@@ -31,3 +31,15 @@ links = [elem.get_attribute('href') for elem in table]
 market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
 dict_data['market cap'] = market_cap
 ```
+## Milestone 4
+- The final step was to implement code that would iterate through the list of links and get the required data. 
+- This step was built outside of the scraper class and within an instance of the class (crypto).
+```Python
+ link_list = []
+link_list.extend(crypto.get_list_of_coin_links()) # list of links to top 50 coins by market cap
+data_list = []
+for link in range(50):
+    coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
+    coin = crypto.get_data(link=coin_link)
+    data_list.append(coin)
+```
