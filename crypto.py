@@ -70,9 +70,7 @@ class Scraper():
         print(links)
         self.link_number = len(links)
         print(f"There are {self.link_number} links.")
-
         return links
-
 
     def get_data(self, link):
         '''
@@ -109,14 +107,13 @@ class Scraper():
         print(change)
         timestamp = (datetime.datetime.now()).strftime('%Y-%m-%dT%H:%M:%S')
         dict_data['timestamp'] = timestamp
-
         return dict_data
-
 
     def quit(self):
         '''Closes the browser window and stops the webdriver from running'''
         driver = self.driver
         driver.quit()
+
 
 if __name__=="__main__":
     crypto = Scraper()
