@@ -118,7 +118,7 @@ print(*data_list, sep = "\n")
 
 # save list of dictts to raw_data folder
 with open("raw_data/data.json", "w") as f:
-    json.dump(data_list, f)
+    json.dump(data_list, f, sep = "\n")
 
 
 # merges the list of dicts into one dictionary
