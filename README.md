@@ -35,11 +35,17 @@ dict_data['market cap'] = market_cap
 - The final step was to implement code that would iterate through the list of links and get the required data. 
 - This step was built outside of the scraper class and within an instance of the class (crypto).
 ```Python
- link_list = []
+link_list = []
 link_list.extend(crypto.get_list_of_coin_links()) # list of links to top 50 coins by market cap
 data_list = []
 for link in range(50):
     coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
     coin = crypto.get_data(link=coin_link)
     data_list.append(coin)
+```
+- Finally, the *data_list* was saved to a *raw_data* folder in .json file.
+- This allows for future analysis of the data.
+```Python
+with open("raw_data/data.json", "w") as file:
+    json.dump(data_list, file, indent=2)
 ```
