@@ -111,5 +111,5 @@ if __name__=="__main__":
     print(*data_list, sep = "\n")
 
     # save list of dictts to raw_data folder
-    with open("raw_data/data.json", "w") as f:
-        json.dump(data_list, f, sep = "\n")
+    with open("raw_data/data.json", "w") as file:
+        json.dump(data_list, file, indent=2)        
