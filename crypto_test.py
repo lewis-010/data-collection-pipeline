@@ -1,8 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 # from selenium.common.exceptions import TimeoutException
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 import unittest
 import crypto
@@ -30,8 +30,8 @@ class TestCrypto(unittest.TestCase):
 
     def test_skip_tour(self):
         Crypto.skip_tour()
-        skip_tour_tab = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]")
-        self.assertNotIn(skip_tour_tab)
+        # skip_tour_tab = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]")
+        assert WebDriverWait(Crypto.driver, 5).until(EC.invisibility_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]")))
         print('The skip tour button has been clicked.')
 
 # //*[@id="__next"] id of whole page
