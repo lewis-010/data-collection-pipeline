@@ -17,14 +17,15 @@ class TestCrypto(unittest.TestCase):
     def test_accept_cookies(self):
         Crypto.accept_cookies()
         cookies_banner = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-banner-sdk']")
-        style_attribute = cookies_banner.get_attribute("style")
-        self.assertIn("hidden", style_attribute)
+        style_attribute = cookies_banner.get_attribute('style')
+        self.assertIn('hidden', style_attribute)
         print('The accept cookies button has been clicked')      
         
     def test_navigate_to_prices(self):
         Crypto.navigate_to_prices()
-        new_tab = Crypto.driver.switch_to.window(Crypto.driver.window_handles[1])
-        self.assertEqual(1, new_tab)
+        new_tab = Crypto.driver.find_element(by=By.XPATH, value = '/html')
+        style_attribute = new_tab.get_attribute('class')
+        self.assertIn('js-focus-visible', style_attribute)
         print('The driver has switched to the new tab')
 
     # def test_skip_tour(self):
