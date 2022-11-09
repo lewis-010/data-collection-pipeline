@@ -7,8 +7,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 import datetime
 import time
 import json
+import unittest
 
-class Scraper():
+class Scraper(unittest.TestCase):
     '''Contains various functions to perform webscraping operations on a given webpage'''
     
     def __init__(self):
@@ -34,6 +35,8 @@ class Scraper():
             time.sleep(3)
         except TimeoutException:
             print('Loading timed out.')
+        self.assertNotIn(driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-accept-btn-handler']")) 
+
 
     def navigate_to_prices(self):
         '''Clicks the 'prices' tab on the crypo.com homepage to display the top 50 coins by market cap'''
@@ -45,6 +48,7 @@ class Scraper():
         except TimeoutException:
             print('Loading timed out.')
 
+
     def skip_tour(self):
         '''Clicks the 'skip tour' button on the price page to allow the webdriver to continue'''
         driver = self.driver
@@ -53,6 +57,7 @@ class Scraper():
             time.sleep(3)
         except TimeoutException:
             print('Loading timed out.')
+
 
     def get_list_of_coin_links(self) -> list:
         '''
@@ -71,6 +76,7 @@ class Scraper():
         self.link_number = len(links)
         print(f"There are {self.link_number} links.")
         return links
+
 
     def get_data(self, link):
         '''
@@ -109,10 +115,12 @@ class Scraper():
         dict_data['timestamp'] = timestamp
         return dict_data
 
+
     def quit(self):
         '''Closes the browser window and stops the webdriver from running'''
         driver = self.driver
         driver.quit()
+        
 
 if __name__=="__main__":
     crypto = Scraper()

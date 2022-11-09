@@ -14,7 +14,9 @@ class TestCrypto(unittest.TestCase):
     def test_accept_cookies(self):
         driver = self.driver
         Crypto.accept_cookies()
-        self.assertNotIn(driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-accept-btn-handler']"))
+        self.assertNotIn(driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-accept-btn-handler']")) 
+        # should pass if the XPATH of the accept cookies button is not there
+        # the button has been clicked so should not be present
     
     def tearDown(self):
         self.driver.quit()
