@@ -28,12 +28,14 @@ class TestCrypto(unittest.TestCase):
         self.assertIn('js-focus-visible', style_attribute)
         print('The driver has switched to the new tab')
 
-    # def test_skip_tour(self):
-        # Crypto.skip_tour()
-        # skip_tour_tab = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]")
-        # self.assertNotIn(skip_tour_tab)
-        # print('The skip tour button has been clicked.')
+    def test_skip_tour(self):
+        Crypto.skip_tour()
+        skip_tour_tab = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]")
+        self.assertNotIn(skip_tour_tab)
+        print('The skip tour button has been clicked.')
 
+# //*[@id="__next"] id of whole page
+# //*[@id="__next"]/div[3]/div[2] id of tab that goes
 
     def tearDown(self):
         self.driver.quit()
