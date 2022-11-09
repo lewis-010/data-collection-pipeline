@@ -35,7 +35,6 @@ class Scraper(unittest.TestCase):
             time.sleep(3)
         except TimeoutException:
             print('Loading timed out.')
-        self.assertNotIn(driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-accept-btn-handler']")) 
 
 
     def navigate_to_prices(self):

@@ -1,8 +1,11 @@
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-import crypto
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 import unittest
+import crypto
 
 Crypto = crypto.Scraper() # allows crytpo.py methods to be called and tested
 
@@ -12,11 +15,12 @@ class TestCrypto(unittest.TestCase):
         self.driver = webdriver.Chrome(ChromeDriverManager().install())   
 
     def test_accept_cookies(self):
-        driver = self.driver
         Crypto.accept_cookies()
-        self.assertNotIn(driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-accept-btn-handler']")) 
-        # should pass if the XPATH of the accept cookies button is not there
-        # the button has been clicked so should not be present
+        try:
+            button = WebDriverWait(Crypto.driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='onetrust-accept-btn-handler']")))
+        except TimeoutException:
+            return
+        raise Exception('Cookies pop-up has not disappeared')
     
     def tearDown(self):
         self.driver.quit()
