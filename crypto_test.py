@@ -17,7 +17,7 @@ class TestCrypto(unittest.TestCase):
     def test_accept_cookies(self):
         Crypto.accept_cookies()
         try:
-            button = WebDriverWait(Crypto.driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='onetrust-accept-btn-handler']")))
+            cookies_banner = WebDriverWait(Crypto.driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='onetrust-banner-sdk']")))
         except TimeoutException:
             return
         raise Exception('Cookies pop-up has not disappeared')
