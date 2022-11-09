@@ -7,8 +7,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 import datetime
 import time
 import json
+import unittest
 
-class Scraper():
+class Scraper(unittest.TestCase):
     '''Contains various functions to perform webscraping operations on a given webpage'''
     
     def __init__(self):
