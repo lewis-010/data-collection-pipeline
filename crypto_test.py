@@ -19,10 +19,13 @@ class TestCrypto(unittest.TestCase):
         cookies_banner = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-banner-sdk']")
         style_attribute = cookies_banner.get_attribute("style")
         self.assertIn("hidden", style_attribute)
-        print('The accept cookies button has been clicked.')      
+        print('The accept cookies button has been clicked')      
         
     def test_navigate_to_prices(self):
         Crypto.navigate_to_prices()
+        new_tab = Crypto.driver.switch_to.window(Crypto.driver.window_handles[1])
+        self.assertEquals(1, new_tab)
+        print('The driver has switched to the new tab')
 
     def test_skip_tour(self):
         Crypto.skip_tour()
