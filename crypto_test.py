@@ -1,5 +1,6 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 import crypto
 import unittest
 
@@ -12,13 +13,11 @@ class TestCrypto(unittest.TestCase):
 
     def test_accept_cookies(self):
         driver = self.driver
-        driver.get('https://crypto.com/eea')
-        driver.maximize_window()
-        self.assertAlmostEqual(Crypto.accept_cookies)
-
-
+        Crypto.accept_cookies()
+        self.assertNotIn(driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-accept-btn-handler']"))
+    
     def tearDown(self):
-        self.driver.close()
+        self.driver.quit()
 
 if __name__=='__main__':
     unittest.main()
