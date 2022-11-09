@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 # from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
@@ -29,13 +30,18 @@ class TestCrypto(unittest.TestCase):
         print('The driver has switched to the new tab')
 
     def test_skip_tour(self):
-        Crypto.skip_tour()
+        Crypto.skip_tour()   
         # skip_tour_tab = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]")
-        assert WebDriverWait(Crypto.driver, 5).until(EC.invisibility_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]")))
+        # assert not WebDriverWait(Crypto.driver, 5).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]")))     
+        with self.assertRaises(NoSuchElementException):
+            Crypto.driver.find_element((By.CSS_SELECTOR, ".css-5lsu66")).is_displayed
         print('The skip tour button has been clicked.')
+        
 
 # //*[@id="__next"] id of whole page
 # //*[@id="__next"]/div[3]/div[2] id of tab that goes
+
+
 
     def tearDown(self):
         self.driver.quit()
