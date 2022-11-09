@@ -7,9 +7,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 import datetime
 import time
 import json
-import unittest
 
-class Scraper(unittest.TestCase):
+class Scraper():
     '''Contains various functions to perform webscraping operations on a given webpage'''
     
     def __init__(self):
@@ -115,7 +114,6 @@ class Scraper(unittest.TestCase):
         driver = self.driver
         driver.quit()
 
-
 if __name__=="__main__":
     crypto = Scraper()
     crypto.accept_cookies()
@@ -135,4 +133,4 @@ if __name__=="__main__":
 
     # save list of dicts to raw_data folder
     with open("raw_data/data.json", "w") as file:
-        json.dump(data_list, file, indent=2)        
+        json.dump(data_list, file, indent=2)
