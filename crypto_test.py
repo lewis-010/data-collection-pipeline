@@ -34,7 +34,7 @@ class TestCrypto(unittest.TestCase):
         # skip_tour_tab = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]")
         # assert not WebDriverWait(Crypto.driver, 5).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]")))     
         with self.assertRaises(NoSuchElementException):
-            Crypto.driver.find_element((By.CSS_SELECTOR, ".css-5lsu66")).is_displayed
+            Crypto.driver.find_element((By.CSS_SELECTOR, ".css-k008qs")).is_displayed
         print('The skip tour button has been clicked.')
         
 
