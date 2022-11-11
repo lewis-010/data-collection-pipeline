@@ -32,15 +32,17 @@ class TestCrypto(unittest.TestCase):
     def test_skip_tour(self):
         Crypto.skip_tour()   
         try:
-            Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]/div[2]/div[1]/div")
+            tour = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]/div[2]/div[1]/div") 
+            class_attribute = tour.get_attribute('class')
+            self.assertNotIn('css-k008qs', class_attribute)
         except NoSuchElementException:
             print('The skip tour button has been clicked.')
             return False            
         return True
-        
+    
+    # def test_get_list_of_coin_links(self):
+        # Crypto.get_list_of_coin_links()
 
-# //*[@id="__next"] id of whole page
-# //*[@id="__next"]/div[3]/div[2] id of tab that goes
 
 
 
