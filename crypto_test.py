@@ -40,8 +40,8 @@ class TestCrypto(unittest.TestCase):
             return False            
         return True
     
-    # def test_get_list_of_coin_links(self):
-        # Crypto.get_list_of_coin_links()
+    def test_get_list_of_coin_links(self):
+        Crypto.get_list_of_coin_links()
 
 
 
