@@ -31,11 +31,12 @@ class TestCrypto(unittest.TestCase):
 
     def test_skip_tour(self):
         Crypto.skip_tour()   
-        # skip_tour_tab = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]")
-        # assert not WebDriverWait(Crypto.driver, 5).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]")))     
-        with self.assertRaises(NoSuchElementException):
-            Crypto.driver.find_element((By.CSS_SELECTOR, ".css-k008qs")).is_displayed
-        print('The skip tour button has been clicked.')
+        try:
+            Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]/div[2]/div[1]/div")
+        except NoSuchElementException:
+            print('The skip tour button has been clicked.')
+            return False            
+        return True
         
 
 # //*[@id="__next"] id of whole page
