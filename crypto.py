@@ -7,9 +7,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 import datetime
 import time
 import json
-import unittest
 
-class Scraper(unittest.TestCase):
+class Scraper():
     '''Contains various functions to perform webscraping operations on a given webpage'''
     
     def __init__(self):
@@ -70,7 +69,7 @@ class Scraper(unittest.TestCase):
         '''
         driver = self.driver
         # table = WebDriverWait(driver,5).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
-        time.sleep(2)
+        time.sleep(3)
         table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
         self.links = [elem.get_attribute('href') for elem in table]
         print(self.links)
