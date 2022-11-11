@@ -22,7 +22,7 @@ class Scraper(unittest.TestCase):
             The webdriver to be used for scraping data
         '''
         self.link_number = 0
-        self.links = list
+        self.links = None
         self.driver = webdriver.Chrome(ChromeDriverManager().install())    
  
     def accept_cookies(self) -> webdriver.Chrome:
@@ -59,7 +59,7 @@ class Scraper(unittest.TestCase):
             print('Loading timed out.')
 
 
-    def get_list_of_coin_links(self) -> list:
+    def get_list_of_coin_links(self):
         '''
         Gets the links for the top 50 coins by market cap
     
@@ -69,7 +69,8 @@ class Scraper(unittest.TestCase):
             A list of the links for the top 50 coins by market cap
         '''
         driver = self.driver
-        table = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
+        # table = WebDriverWait(driver,5).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
+        time.sleep(2)
         table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
         self.links = [elem.get_attribute('href') for elem in table]
         print(self.links)

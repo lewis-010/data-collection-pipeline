@@ -42,8 +42,8 @@ class TestCrypto(unittest.TestCase):
     
     def test_get_list_of_coin_links(self):
         Crypto.get_list_of_coin_links()
-        # self.assertIsInstance(Crypto.links, list)
-        # print('The returned variable is a list')
+        self.assertIsInstance(Crypto.links, list)
+        print('The returned variable is a list')
         
 
 
