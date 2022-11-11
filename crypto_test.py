@@ -52,4 +52,10 @@ class TestCrypto(unittest.TestCase):
         self.driver.quit()
 
 if __name__=='__main__':
-    unittest.main()
+    # unittest.main()
+    test = TestCrypto()
+    test.setUp()
+    test.test_accept_cookies()
+    test.test_navigate_to_prices()
+    test.test_skip_tour()
+    test.test_get_list_of_coin_links()
