@@ -22,7 +22,7 @@ class Scraper(unittest.TestCase):
             The webdriver to be used for scraping data
         '''
         self.link_number = 0
-        self.links = None
+        self.links = list
         self.driver = webdriver.Chrome(ChromeDriverManager().install())    
  
     def accept_cookies(self) -> webdriver.Chrome:
