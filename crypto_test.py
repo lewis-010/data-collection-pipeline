@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from webdriver_manager.chrome import ChromeDriverManager
 import crypto
+import time
 import unittest
 
 Crypto = crypto.Scraper()
@@ -46,14 +47,16 @@ class TestCrypto(unittest.TestCase):
         Crypto.get_data(link='https://crypto.com/price/bitcoin')
         self.assertIsInstance(Crypto.dict_data, dict)
         print('get_data returns a dictionary variable.')
-        Crypto.quit()
     
     def test_6_update_dataset(self):
+        Crypto.driver.back()
+        time.sleep(3)
         Crypto.update_dataset()
         self.assertIsInstance(Crypto.data_list, list)
         print('update_dataset returns a list variable.')
         count = len([ele for ele in Crypto.data_list if isinstance(ele, dict)])
-        print(f'The data_list has {count} elements that are all dictionaries')
+        print(f'The data_list has {count} elements that are all dictionaries.')
+        Crypto.quit()
 
     def tearDown(self):
         self.driver.quit()
