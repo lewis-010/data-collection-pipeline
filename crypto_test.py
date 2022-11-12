@@ -5,8 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import crypto
 import unittest
 
-# unittest.TestLoader.sortTestMethodsUsing = None
-Crypto = crypto.Scraper() # allows crypto.py methods to be called and tested
+Crypto = crypto.Scraper()
 
 class TestCrypto(unittest.TestCase):
 
@@ -54,11 +53,3 @@ class TestCrypto(unittest.TestCase):
 
 if __name__=='__main__':
     unittest.main()
-    # check = TestCrypto()
-    # check.setUp()
-    # check.test_accept_cookies()
-    # check.test_navigate_to_prices()
-    # check.test_skip_tour()
-    # check.test_get_list_of_coin_links()
-    # check.test_get_data()
-    # check.tearDown()
