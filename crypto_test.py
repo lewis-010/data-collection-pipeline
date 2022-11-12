@@ -50,7 +50,10 @@ class TestCrypto(unittest.TestCase):
     
     def test_6_update_dataset(self):
         Crypto.update_dataset()
-
+        self.assertIsInstance(Crypto.data_list, list)
+        print('update_dataset returns a list variable.')
+        count = len([ele for ele in Crypto.data_list if isinstance(ele, dict)])
+        print(f'The data_list has {count} elements that are all dictionaries')
 
     def tearDown(self):
         self.driver.quit()
