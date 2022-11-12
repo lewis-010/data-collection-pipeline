@@ -28,6 +28,7 @@ class Scraper():
         self.links = []
         self.dict_data = {}
         self.driver = webdriver.Chrome(ChromeDriverManager().install())    
+
  
     def accept_cookies(self) -> webdriver.Chrome:
         '''Clicks the 'accept cookies' button on the cryto.com homepage to allow the webdriver to continue'''
@@ -119,6 +120,7 @@ class Scraper():
         timestamp = (datetime.datetime.now()).strftime('%Y-%m-%dT%H:%M:%S')
         self.dict_data['timestamp'] = timestamp
         return self.dict_data
+
 
     def update_dataset(self):
         '''
