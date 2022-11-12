@@ -17,12 +17,16 @@ class Scraper():
         ----------
         link_number: int
             The number of links of individual crytpocurrency pages to be scraped
+        links: list
+            The list of links to be iteratively scraped for data
+        dict_data: dict
+            The dicts containing scraped data for individual links
         driver: WebDriver
             The webdriver to be used for scraping data
         '''
         self.link_number = 0
-        self.links = None
-        self.dict_data = None
+        self.links = []
+        self.dict_data = {}
         self.driver = webdriver.Chrome(ChromeDriverManager().install())    
  
     def accept_cookies(self) -> webdriver.Chrome:
@@ -117,8 +121,16 @@ class Scraper():
         return self.dict_data
 
     def update_dataset(self):
+        '''
+        Iteratively scrapes data from the list of links collected in the previous method.
+
+        Returns
+        -------
+        data_list: list
+            A JSON file containing a list of dictionaries with the data scraped from each link.
+        '''
         link_list = []
-        link_list.extend(crypto.get_list_of_coin_links()) # list of links to top 50 coins by market cap
+        link_list.extend(crypto.get_list_of_coin_links())
         data_list = []
         for link in range(50):
             coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
@@ -143,18 +155,4 @@ if __name__=="__main__":
     crypto.navigate_to_prices()
     crypto.skip_tour()
     crypto.update_dataset()
-    # link_list = []
-    # link_list.extend(crypto.get_list_of_coin_links()) # list of links to top 50 coins by market cap
-    # data_list = []
-    # for link in range(50):
-        # coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
-        # coin = crypto.get_data(link=coin_link)
-        # data_list.append(coin)
     crypto.quit()
-
-    # print list of dicts on new line
-    # print(*data_list, sep = "\n")
-
-    # save list of dicts to raw_data folder
-    # with open("raw_data/data.json", "w") as file:
-        # json.dump(data_list, file, indent=2)
