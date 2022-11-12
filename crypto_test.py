@@ -5,6 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import crypto
 import unittest
 
+# unittest.TestLoader.sortTestMethodsUsing = None
 Crypto = crypto.Scraper() # allows crypto.py methods to be called and tested
 
 class TestCrypto(unittest.TestCase):
@@ -12,21 +13,21 @@ class TestCrypto(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install())   
 
-    def test_accept_cookies(self):
+    def test_1_accept_cookies(self):
         Crypto.accept_cookies()
         cookies_banner = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-banner-sdk']")
         style_attribute = cookies_banner.get_attribute('style')
         self.assertIn('hidden', style_attribute)
         print('The accept cookies button has been clicked.')      
         
-    def test_navigate_to_prices(self):
+    def test_2_navigate_to_prices(self):
         Crypto.navigate_to_prices()
         new_tab = Crypto.driver.find_element(by=By.XPATH, value = '/html')
         style_attribute = new_tab.get_attribute('class')
         self.assertIn('js-focus-visible', style_attribute)
         print('The driver has switched to the new tab.')
 
-    def test_skip_tour(self):
+    def test_3_skip_tour(self):
         Crypto.skip_tour()   
         try:
             tour = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div[2]/div[2]/div[1]/div") 
@@ -37,12 +38,12 @@ class TestCrypto(unittest.TestCase):
             return False            
         return True
     
-    def test_get_list_of_coin_links(self):
+    def test_4_get_list_of_coin_links(self):
         Crypto.get_list_of_coin_links()
         self.assertIsInstance(Crypto.links, list)
         print('The returned variable is a list.')
     
-    def test_get_data(self):
+    def test_5_get_data(self):
         Crypto.get_data(link='https://crypto.com/price/bitcoin')
         self.assertIsInstance(Crypto.dict_data, dict)
         print('The returned variable is a dictionary.')
