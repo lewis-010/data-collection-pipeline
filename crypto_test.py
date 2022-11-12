@@ -20,14 +20,14 @@ class TestCrypto(unittest.TestCase):
         cookies_banner = Crypto.driver.find_element(by=By.XPATH, value = "//*[@id='onetrust-banner-sdk']")
         style_attribute = cookies_banner.get_attribute('style')
         self.assertIn('hidden', style_attribute)
-        print('The accept cookies button has been clicked')      
+        print('The accept cookies button has been clicked.')      
         
     def test_navigate_to_prices(self):
         Crypto.navigate_to_prices()
         new_tab = Crypto.driver.find_element(by=By.XPATH, value = '/html')
         style_attribute = new_tab.get_attribute('class')
         self.assertIn('js-focus-visible', style_attribute)
-        print('The driver has switched to the new tab')
+        print('The driver has switched to the new tab.')
 
     def test_skip_tour(self):
         Crypto.skip_tour()   
@@ -43,15 +43,13 @@ class TestCrypto(unittest.TestCase):
     def test_get_list_of_coin_links(self):
         Crypto.get_list_of_coin_links()
         self.assertIsInstance(Crypto.links, list)
-        print('The returned variable is a list')
+        print('The returned variable is a list.')
     
     def test_get_data(self):
-        Crypto.get_data()
-        self.assertIsInstance(crypto.data_list, list)
-        print('The returned variable is a list')
-        
-
-
+        Crypto.get_data(link='https://crypto.com/price/bitcoin')
+        self.assertIsInstance(Crypto.dict_data, dict)
+        print('The returned variable is a dictionary.')
+        Crypto.quit()
 
     def tearDown(self):
         self.driver.quit()
@@ -64,3 +62,5 @@ if __name__=='__main__':
     test.test_navigate_to_prices()
     test.test_skip_tour()
     test.test_get_list_of_coin_links()
+    test.test_get_data()
+    test.tearDown()

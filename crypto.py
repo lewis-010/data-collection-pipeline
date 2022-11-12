@@ -22,6 +22,7 @@ class Scraper():
         '''
         self.link_number = 0
         self.links = None
+        self.dict_data = None
         self.driver = webdriver.Chrome(ChromeDriverManager().install())    
  
     def accept_cookies(self) -> webdriver.Chrome:
@@ -72,7 +73,7 @@ class Scraper():
         time.sleep(3)
         table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
         self.links = [elem.get_attribute('href') for elem in table]
-        print(self.links)
+        # print(self.links)
         self.link_number = len(self.links)
         print(f"There are {self.link_number} links.")
         return self.links
@@ -94,26 +95,26 @@ class Scraper():
             timestamp of data collection for each coin
         '''
         driver = self.driver
-        dict_data = {}
+        self.dict_data = {}
         driver.get(link)
         ID  = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1xvru47").text
-        dict_data['ID'] = ID
+        self.dict_data['ID'] = ID
         print(ID)
         market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
-        dict_data['market cap'] = market_cap
+        self.dict_data['market cap'] = market_cap
         print(market_cap)
         time.sleep(1)
         price = str(driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/h2/span").text)
         new_price = price.replace("USD","")
-        dict_data['price'] = new_price  
+        self.dict_data['price'] = new_price  
         print(new_price)
         time.sleep(1)
         change = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").text
-        dict_data['24H change'] = change
+        self.dict_data['24H change'] = change
         print(change)
         timestamp = (datetime.datetime.now()).strftime('%Y-%m-%dT%H:%M:%S')
-        dict_data['timestamp'] = timestamp
-        return dict_data
+        self.dict_data['timestamp'] = timestamp
+        return self.dict_data
 
 
     def quit(self):
