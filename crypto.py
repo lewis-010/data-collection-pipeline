@@ -116,6 +116,20 @@ class Scraper():
         self.dict_data['timestamp'] = timestamp
         return self.dict_data
 
+    def update_dataset(self):
+        link_list = []
+        link_list.extend(crypto.get_list_of_coin_links()) # list of links to top 50 coins by market cap
+        data_list = []
+        for link in range(50):
+            coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
+            coin = crypto.get_data(link=coin_link)
+            data_list.append(coin)
+            
+        print(*data_list, sep = "\n")
+        with open("raw_data/data.json", "w") as file: # save list of dicts to raw_data folder
+            json.dump(data_list, file, indent=2)
+        return data_list
+
 
     def quit(self):
         '''Closes the browser window and stops the webdriver from running'''
@@ -128,18 +142,19 @@ if __name__=="__main__":
     crypto.accept_cookies()
     crypto.navigate_to_prices()
     crypto.skip_tour()
-    link_list = []
-    link_list.extend(crypto.get_list_of_coin_links()) # list of links to top 50 coins by market cap
-    data_list = []
-    for link in range(50):
-        coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
-        coin = crypto.get_data(link=coin_link)
-        data_list.append(coin)
+    crypto.update_dataset()
+    # link_list = []
+    # link_list.extend(crypto.get_list_of_coin_links()) # list of links to top 50 coins by market cap
+    # data_list = []
+    # for link in range(50):
+        # coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
+        # coin = crypto.get_data(link=coin_link)
+        # data_list.append(coin)
     crypto.quit()
 
     # print list of dicts on new line
-    print(*data_list, sep = "\n")
+    # print(*data_list, sep = "\n")
 
     # save list of dicts to raw_data folder
-    with open("raw_data/data.json", "w") as file:
-        json.dump(data_list, file, indent=2)
+    # with open("raw_data/data.json", "w") as file:
+        # json.dump(data_list, file, indent=2)
