@@ -18,15 +18,18 @@ class Scraper():
         link_number: int
             The number of links of individual crytpocurrency pages to be scraped
         links: list
-            The list of links to be iteratively scraped for data
+            A list of links to be iteratively scraped for data
         dict_data: dict
-            The dicts containing scraped data for individual links
+            A dictionary containing scraped data for an individual link
+        data_list: list
+            A list of individual dictionaries
         driver: WebDriver
             The webdriver to be used for scraping data
         '''
         self.link_number = 0
         self.links = []
         self.dict_data = {}
+        self.data_list = []
         self.driver = webdriver.Chrome(ChromeDriverManager().install())    
 
  
@@ -133,16 +136,15 @@ class Scraper():
         '''
         link_list = []
         link_list.extend(crypto.get_list_of_coin_links())
-        data_list = []
+        self.data_list = []
         for link in range(50):
             coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
             coin = crypto.get_data(link=coin_link)
-            data_list.append(coin)
+            self.data_list.append(coin)
             
-        print(*data_list, sep = "\n")
+        print(*self.data_list, sep = "\n")
         with open("raw_data/data.json", "w") as file: # save list of dicts to raw_data folder
-            json.dump(data_list, file, indent=2)
-        return data_list
+            json.dump(self.data_list, file, indent=2)
 
 
     def quit(self):

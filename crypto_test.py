@@ -40,13 +40,17 @@ class TestCrypto(unittest.TestCase):
     def test_4_get_list_of_coin_links(self):
         Crypto.get_list_of_coin_links()
         self.assertIsInstance(Crypto.links, list)
-        print('The returned variable is a list.')
+        print('get_list_of_coins returns a list variable.')
     
     def test_5_get_data(self):
         Crypto.get_data(link='https://crypto.com/price/bitcoin')
         self.assertIsInstance(Crypto.dict_data, dict)
-        print('The returned variable is a dictionary.')
+        print('get_data returns a dictionary variable.')
         Crypto.quit()
+    
+    def test_6_update_dataset(self):
+        Crypto.update_dataset()
+
 
     def tearDown(self):
         self.driver.quit()
