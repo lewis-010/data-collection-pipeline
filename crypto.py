@@ -31,6 +31,7 @@ class Scraper():
         self.links = []
         self.dict_data = {}
         self.data_list = []
+        
         self.options = webdriver.ChromeOptions()
         self.options.add_argument("--headless")
         self.options.add_argument("window-size=1920,1080")
