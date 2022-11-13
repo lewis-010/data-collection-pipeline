@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -30,8 +31,11 @@ class Scraper():
         self.links = []
         self.dict_data = {}
         self.data_list = []
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())    
-
+        options = Options()
+        options.add_argument("--headless")
+        options.add_argument("window-size=1920,1080") 
+        self.driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options = options)
+        
  
     def accept_cookies(self) -> webdriver.Chrome:
         '''Clicks the 'accept cookies' button on the cryto.com homepage to allow the webdriver to continue'''
