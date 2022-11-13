@@ -31,10 +31,11 @@ class Scraper():
         self.links = []
         self.dict_data = {}
         self.data_list = []
-        options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
-        options.add_argument("window-size=1920,1080")
-        self.driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options = options)
+        self.options = webdriver.ChromeOptions()
+        self.options.add_argument("--headless")
+        self.options.add_argument("window-size=1920,1080")
+        self.options.add_experimental_option('excludeSwitches', ['enable-automation'])
+        self.driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options = self.options)
 
  
     def accept_cookies(self) -> webdriver.Chrome:
