@@ -33,9 +33,11 @@ class Scraper():
         self.data_list = []
         options = Options()
         options.add_argument("--headless")
-        options.add_argument("window-size=1920,1080") 
+        options.add_argument("window-size=1920,1080")
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option("useAutomationExtension", False)
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options = options)
-        
+
  
     def accept_cookies(self) -> webdriver.Chrome:
         '''Clicks the 'accept cookies' button on the cryto.com homepage to allow the webdriver to continue'''
