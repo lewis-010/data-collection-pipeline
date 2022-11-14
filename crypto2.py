@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from webdriver_manager.firefox import GeckoDriverManager
 import datetime
 import time
 import json
@@ -30,7 +32,7 @@ class Scraper():
         self.dict_data = {}
         self.data_list = []
         
-        self.driver = webdriver.Firefox(executable_path=r'C:\Users\lcox1\Documents\VSCode\AiCore\geckodriver.exe')
+        self.driver = webdriver.Firefox(GeckoDriverManager().install())
 
  
     def accept_cookies(self) -> webdriver.Chrome:
