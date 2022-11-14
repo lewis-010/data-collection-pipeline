@@ -1,17 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-from webdriver_manager.chrome import ChromeDriverManager
-import crypto
+from webdriver_manager.firefox import GeckoDriverManager
+import crypto_firefox
 import time
 import unittest
 
-Crypto = crypto.Scraper()
+Crypto = crypto_firefox.Scraper()
 
 class TestCrypto(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())   
+        self.driver = webdriver.Firefox(executable_path = GeckoDriverManager().install())  
 
     def test_1_accept_cookies(self):
         Crypto.accept_cookies()
