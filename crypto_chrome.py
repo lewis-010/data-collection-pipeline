@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-# from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -38,7 +37,7 @@ class Scraper():
         self.options.add_argument("--disable-dev-shm-usage")
         self.options.add_argument("--disable-setuid-sandbox") 
         self.options.add_argument('--disable-gpu')
-        #self.options.add_argument("--no-sandbox")
+        self.options.add_argument("--no-sandbox")
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options = self.options)
 
  

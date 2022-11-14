@@ -8,3 +8,24 @@ WebDriver BiDi listening on ws://127.0.0.1:62636
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\lcox1\\AppData\\Local\\Temp\\rust_mozprofilePn4cfa\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://127.0.0.1:62636/devtools/browser/7f769d65-273b-450c-90a7-16af80cca89a
 1668436210894	Marionette	INFO	Stopped listening on port 62647
+1668436863822	geckodriver	INFO	Listening on 127.0.0.1:63410
+1668436866883	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "63411" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\lcox1\\AppData\\Local\\Temp\\rust_mozprofileZAfuTw"
+*** You are running in headless mode.
+1668436867622	Marionette	INFO	Marionette enabled
+1668436867633	Marionette	INFO	Listening on port 63420
+Read port: 63420
+WebDriver BiDi listening on ws://127.0.0.1:63411
+1668436867827	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\lcox1\\AppData\\Local\\Temp\\rust_mozprofileZAfuTw\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63411/devtools/browser/370dd955-0086-4162-9c28-a3a939a0e5d7
+1668437109914	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1668437109915	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1668437109916	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1668437109917	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://crypto.com."
+1668437220775	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1668437220775	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1668437220776	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1668437220776	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1668437264258	Marionette	INFO	Stopped listening on port 63420
