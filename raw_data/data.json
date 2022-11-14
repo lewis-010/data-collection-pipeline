@@ -1,352 +1,352 @@
 [
   {
     "ID": "Bitcoin",
-    "market cap": "$323.18 B",
-    "price": "$17,047.56 ",
-    "24H change": "-0.56%",
-    "timestamp": "2022-11-14T14:09:59"
+    "market cap": "$321.55 B",
+    "price": "$16,891.94 ",
+    "24H change": "-1.04%",
+    "timestamp": "2022-11-14T14:22:48"
   },
   {
     "ID": "Ethereum",
-    "market cap": "$154.01 B",
-    "price": "$1,284.87 ",
-    "24H change": "+1.44%",
-    "timestamp": "2022-11-14T14:10:05"
+    "market cap": "$153.21 B",
+    "price": "$1,276.15 ",
+    "24H change": "+1.13%",
+    "timestamp": "2022-11-14T14:22:53"
   },
   {
     "ID": "Tether",
-    "market cap": "$66.28 B",
+    "market cap": "$66.3 B",
     "price": "$1.01 ",
-    "24H change": "+0.02%",
-    "timestamp": "2022-11-14T14:10:12"
+    "24H change": "-0.00%",
+    "timestamp": "2022-11-14T14:23:00"
   },
   {
     "ID": "BNB",
-    "market cap": "$45.48 B",
-    "price": "$284.30 ",
-    "24H change": "+1.32%",
-    "timestamp": "2022-11-14T14:10:19"
+    "market cap": "$45.18 B",
+    "price": "$282.41 ",
+    "24H change": "+1.08%",
+    "timestamp": "2022-11-14T14:23:07"
   },
   {
     "ID": "USD Coin",
-    "market cap": "$44.04 B",
+    "market cap": "$44.07 B",
     "price": "$1.00 ",
     "24H change": "+0.02%",
-    "timestamp": "2022-11-14T14:10:25"
+    "timestamp": "2022-11-14T14:23:13"
   },
   {
     "ID": "Binance USD",
-    "market cap": "$23.25 B",
+    "market cap": "$23.39 B",
     "price": "$1.01 ",
-    "24H change": "-1.53%",
-    "timestamp": "2022-11-14T14:10:32"
+    "24H change": "-0.80%",
+    "timestamp": "2022-11-14T14:23:19"
   },
   {
     "ID": "XRP",
-    "market cap": "$17.57 B",
-    "price": "$0.3585 ",
-    "24H change": "-1.20%",
-    "timestamp": "2022-11-14T14:10:41"
+    "market cap": "$17.4 B",
+    "price": "$0.3545 ",
+    "24H change": "-2.12%",
+    "timestamp": "2022-11-14T14:23:35"
   },
   {
     "ID": "Dogecoin",
-    "market cap": "$11.61 B",
-    "price": "$0.08887 ",
-    "24H change": "-0.50%",
-    "timestamp": "2022-11-14T14:10:47"
+    "market cap": "$11.48 B",
+    "price": "$0.08787 ",
+    "24H change": "-1.21%",
+    "timestamp": "2022-11-14T14:23:40"
   },
   {
     "ID": "Cardano",
-    "market cap": "$11.52 B",
-    "price": "$0.3426 ",
-    "24H change": "-0.75%",
-    "timestamp": "2022-11-14T14:10:58"
+    "market cap": "$11.41 B",
+    "price": "$0.3396 ",
+    "24H change": "-1.07%",
+    "timestamp": "2022-11-14T14:23:46"
   },
   {
     "ID": "Polygon",
-    "market cap": "$8.16 B",
-    "price": "$0.9544 ",
-    "24H change": "+2.77%",
-    "timestamp": "2022-11-14T14:11:04"
+    "market cap": "$8.06 B",
+    "price": "$0.9462 ",
+    "24H change": "+2.23%",
+    "timestamp": "2022-11-14T14:23:51"
   },
   {
     "ID": "Polkadot",
-    "market cap": "$6.58 B",
-    "price": "$5.91 ",
-    "24H change": "-0.81%",
-    "timestamp": "2022-11-14T14:11:18"
+    "market cap": "$6.53 B",
+    "price": "$5.89 ",
+    "24H change": "-1.21%",
+    "timestamp": "2022-11-14T14:23:57"
   },
   {
     "ID": "Dai",
-    "market cap": "$5.92 B",
-    "price": "$1.01 ",
+    "market cap": "$5.93 B",
+    "price": "$1.02 ",
     "24H change": "+0.01%",
-    "timestamp": "2022-11-14T14:11:30"
+    "timestamp": "2022-11-14T14:24:04"
   },
   {
     "ID": "HEX",
     "market cap": "$5.72 B",
     "price": "$0.03296 ",
-    "24H change": "-0.40%",
-    "timestamp": "2022-11-14T14:11:39"
+    "24H change": "-0.34%",
+    "timestamp": "2022-11-14T14:24:09"
   },
   {
     "ID": "Solana",
-    "market cap": "$5.2 B",
-    "price": "$15.08 ",
-    "24H change": "+0.68%",
-    "timestamp": "2022-11-14T14:11:45"
+    "market cap": "$5.13 B",
+    "price": "$14.96 ",
+    "24H change": "+0.91%",
+    "timestamp": "2022-11-14T14:24:17"
   },
   {
     "ID": "Wrapped TRON",
-    "market cap": "$5.18 B",
-    "price": "$0.05096 ",
-    "24H change": "-1.84%",
-    "timestamp": "2022-11-14T14:11:56"
+    "market cap": "$5.19 B",
+    "price": "$0.051 ",
+    "24H change": "-2.04%",
+    "timestamp": "2022-11-14T14:24:22"
   },
   {
     "ID": "SHIBA INU",
-    "market cap": "$5.07 B",
-    "price": "$0.000009421 ",
-    "24H change": "-0.96%",
-    "timestamp": "2022-11-14T14:12:03"
+    "market cap": "$5.02 B",
+    "price": "$0.0000093 ",
+    "24H change": "-1.32%",
+    "timestamp": "2022-11-14T14:24:27"
   },
   {
-    "ID": "",
-    "market cap": "N/A",
-    "price": "$0 ",
-    "24H change": "+0.00%",
-    "timestamp": "2022-11-14T14:12:22"
+    "ID": "TRON",
+    "market cap": "$4.63 B",
+    "price": "$0.05026 ",
+    "24H change": "-3.33%",
+    "timestamp": "2022-11-14T14:24:35"
   },
   {
     "ID": "Uniswap",
-    "market cap": "$4.51 B",
-    "price": "$6.07 ",
-    "24H change": "-0.09%",
-    "timestamp": "2022-11-14T14:12:28"
+    "market cap": "$4.47 B",
+    "price": "$6.01 ",
+    "24H change": "+0.08%",
+    "timestamp": "2022-11-14T14:24:44"
   },
   {
     "ID": "Lido stETH",
-    "market cap": "$4.32 B",
-    "price": "$1,237.26 ",
-    "24H change": "+2.17%",
-    "timestamp": "2022-11-14T14:12:35"
+    "market cap": "$4.3 B",
+    "price": "$1,233.06 ",
+    "24H change": "+3.28%",
+    "timestamp": "2022-11-14T14:24:53"
   },
   {
     "ID": "Litecoin",
-    "market cap": "$4.13 B",
-    "price": "$58.63 ",
-    "24H change": "-1.02%",
-    "timestamp": "2022-11-14T14:12:43"
+    "market cap": "$4.1 B",
+    "price": "$58.12 ",
+    "24H change": "-1.49%",
+    "timestamp": "2022-11-14T14:25:04"
   },
   {
     "ID": "Avalanche",
-    "market cap": "$3.99 B",
-    "price": "$13.58 ",
-    "24H change": "+0.03%",
-    "timestamp": "2022-11-14T14:12:51"
+    "market cap": "$3.95 B",
+    "price": "$13.43 ",
+    "24H change": "+0.05%",
+    "timestamp": "2022-11-14T14:25:15"
   },
   {
     "ID": "Wrapped Bitcoin",
-    "market cap": "$3.97 B",
-    "price": "$17,012.13 ",
-    "24H change": "-0.23%",
-    "timestamp": "2022-11-14T14:12:58"
+    "market cap": "$3.96 B",
+    "price": "$16,934.98 ",
+    "24H change": "-0.38%",
+    "timestamp": "2022-11-14T14:25:27"
   },
   {
     "ID": "UNUS SED LEO",
     "market cap": "$3.64 B",
-    "price": "$3.81 ",
-    "24H change": "-2.16%",
-    "timestamp": "2022-11-14T14:13:03"
+    "price": "$3.82 ",
+    "24H change": "-0.67%",
+    "timestamp": "2022-11-14T14:25:37"
   },
   {
     "ID": "Chainlink",
-    "market cap": "$3.09 B",
-    "price": "$6.43 ",
-    "24H change": "+0.11%",
-    "timestamp": "2022-11-14T14:13:12"
+    "market cap": "$3.06 B",
+    "price": "$6.36 ",
+    "24H change": "-0.13%",
+    "timestamp": "2022-11-14T14:25:50"
   },
   {
     "ID": "Cosmos",
-    "market cap": "$2.99 B",
-    "price": "$10.69 ",
-    "24H change": "-2.35%",
-    "timestamp": "2022-11-14T14:13:18"
+    "market cap": "$2.96 B",
+    "price": "$10.60 ",
+    "24H change": "-2.54%",
+    "timestamp": "2022-11-14T14:26:04"
   },
   {
     "ID": "Ethereum Classic",
-    "market cap": "$2.79 B",
-    "price": "$20.73 ",
-    "24H change": "-0.10%",
-    "timestamp": "2022-11-14T14:13:25"
+    "market cap": "$2.77 B",
+    "price": "$20.55 ",
+    "24H change": "-0.21%",
+    "timestamp": "2022-11-14T14:26:19"
   },
   {
     "ID": "Monero",
-    "market cap": "$2.35 B",
-    "price": "$129.34 ",
-    "24H change": "+0.30%",
-    "timestamp": "2022-11-14T14:13:31"
+    "market cap": "$2.34 B",
+    "price": "$128.52 ",
+    "24H change": "+0.39%",
+    "timestamp": "2022-11-14T14:26:32"
   },
   {
     "ID": "Stellar",
-    "market cap": "$2.27 B",
-    "price": "$0.09063 ",
-    "24H change": "-1.30%",
-    "timestamp": "2022-11-14T14:13:39"
+    "market cap": "$2.25 B",
+    "price": "$0.08968 ",
+    "24H change": "-1.67%",
+    "timestamp": "2022-11-14T14:26:45"
   },
   {
     "ID": "Bitcoin Cash",
-    "market cap": "$1.97 B",
-    "price": "$104.97 ",
-    "24H change": "+1.22%",
-    "timestamp": "2022-11-14T14:13:45"
+    "market cap": "$1.96 B",
+    "price": "$104.25 ",
+    "24H change": "+1.11%",
+    "timestamp": "2022-11-14T14:26:59"
   },
   {
     "ID": "Toncoin",
     "market cap": "$1.96 B",
-    "price": "$1.60 ",
-    "24H change": "+0.49%",
-    "timestamp": "2022-11-14T14:13:52"
+    "price": "$1.61 ",
+    "24H change": "+0.37%",
+    "timestamp": "2022-11-14T14:27:12"
   },
   {
     "ID": "Algorand",
-    "market cap": "$1.83 B",
-    "price": "$0.2635 ",
-    "24H change": "-3.77%",
-    "timestamp": "2022-11-14T14:14:03"
+    "market cap": "$1.81 B",
+    "price": "$0.2599 ",
+    "24H change": "-4.21%",
+    "timestamp": "2022-11-14T14:27:28"
   },
   {
     "ID": "Cronos",
     "market cap": "$1.8 B",
-    "price": "$0.07319 ",
-    "24H change": "+9.47%",
-    "timestamp": "2022-11-14T14:14:12"
+    "price": "$0.07217 ",
+    "24H change": "+9.52%",
+    "timestamp": "2022-11-14T14:27:33"
   },
   {
     "ID": "Bitcoin BEP2",
-    "market cap": "$1.77 B",
-    "price": "$16,772.79 ",
-    "24H change": "+0.90%",
-    "timestamp": "2022-11-14T14:14:20"
+    "market cap": "$1.75 B",
+    "price": "$16,632.22 ",
+    "24H change": "+0.04%",
+    "timestamp": "2022-11-14T14:27:46"
   },
   {
     "ID": "NEAR Protocol",
-    "market cap": "$1.63 B",
-    "price": "$2.01 ",
-    "24H change": "-1.67%",
-    "timestamp": "2022-11-14T14:14:27"
+    "market cap": "$1.61 B",
+    "price": "$1.98 ",
+    "24H change": "-1.73%",
+    "timestamp": "2022-11-14T14:27:52"
   },
   {
     "ID": "VeChain",
-    "market cap": "$1.4 B",
-    "price": "$0.02132 ",
-    "24H change": "-1.88%",
-    "timestamp": "2022-11-14T14:14:37"
+    "market cap": "$1.38 B",
+    "price": "$0.02102 ",
+    "24H change": "-3.10%",
+    "timestamp": "2022-11-14T14:27:57"
   },
   {
     "ID": "Filecoin",
-    "market cap": "$1.38 B",
-    "price": "$4.45 ",
-    "24H change": "+0.36%",
-    "timestamp": "2022-11-14T14:14:48"
+    "market cap": "$1.37 B",
+    "price": "$4.42 ",
+    "24H change": "+0.12%",
+    "timestamp": "2022-11-14T14:28:04"
   },
   {
     "ID": "Quant",
-    "market cap": "$1.32 B",
-    "price": "$112.71 ",
-    "24H change": "-1.78%",
-    "timestamp": "2022-11-14T14:15:00"
+    "market cap": "$1.29 B",
+    "price": "$110.16 ",
+    "24H change": "-2.80%",
+    "timestamp": "2022-11-14T14:28:11"
   },
   {
     "ID": "Flow",
-    "market cap": "$1.24 B",
-    "price": "$1.19 ",
-    "24H change": "-4.05%",
-    "timestamp": "2022-11-14T14:15:13"
+    "market cap": "$1.23 B",
+    "price": "$1.21 ",
+    "24H change": "-3.17%",
+    "timestamp": "2022-11-14T14:28:17"
   },
   {
     "ID": "Chiliz",
-    "market cap": "$1.23 B",
-    "price": "$0.2078 ",
-    "24H change": "+0.32%",
-    "timestamp": "2022-11-14T14:15:25"
+    "market cap": "$1.21 B",
+    "price": "$0.2047 ",
+    "24H change": "-0.70%",
+    "timestamp": "2022-11-14T14:28:23"
   },
   {
     "ID": "Frax",
     "market cap": "$1.17 B",
-    "price": "$0.9932 ",
-    "24H change": "+1.38%",
-    "timestamp": "2022-11-14T14:15:38"
+    "price": "$0.9906 ",
+    "24H change": "+0.33%",
+    "timestamp": "2022-11-14T14:28:32"
   },
   {
     "ID": "Luna Classic",
-    "market cap": "$1.15 B",
-    "price": "$0.0001918 ",
-    "24H change": "-3.90%",
-    "timestamp": "2022-11-14T14:15:53"
+    "market cap": "$1.13 B",
+    "price": "$0.0001894 ",
+    "24H change": "-4.81%",
+    "timestamp": "2022-11-14T14:28:41"
   },
   {
-    "ID": "",
-    "market cap": "N/A",
-    "price": "$0 ",
-    "24H change": "+0.00%",
-    "timestamp": "2022-11-14T14:16:10"
+    "ID": "OKB",
+    "market cap": "$1.1 B",
+    "price": "$18.27 ",
+    "24H change": "+1.72%",
+    "timestamp": "2022-11-14T14:28:50"
   },
   {
     "ID": "Internet Computer",
-    "market cap": "$1.09 B",
-    "price": "$4.11 ",
-    "24H change": "+1.00%",
-    "timestamp": "2022-11-14T14:16:16"
+    "market cap": "$1.08 B",
+    "price": "$4.06 ",
+    "24H change": "-1.66%",
+    "timestamp": "2022-11-14T14:29:01"
   },
   {
     "ID": "Wrapped BNB",
-    "market cap": "$1.08 B",
-    "price": "$284.51 ",
-    "24H change": "+1.48%",
-    "timestamp": "2022-11-14T14:16:33"
+    "market cap": "$1.07 B",
+    "price": "$282.30 ",
+    "24H change": "+1.04%",
+    "timestamp": "2022-11-14T14:29:08"
   },
   {
-    "ID": "",
-    "market cap": "N/A",
-    "price": "$45.62 ",
-    "24H change": "+0.00%",
-    "timestamp": "2022-11-14T14:16:50"
+    "ID": "Elrond",
+    "market cap": "$1.05 B",
+    "price": "$45.11 ",
+    "24H change": "+0.93%",
+    "timestamp": "2022-11-14T14:29:14"
   },
   {
     "ID": "Chain",
     "market cap": "$1.06 B",
-    "price": "$0.0492 ",
-    "24H change": "+2.89%",
-    "timestamp": "2022-11-14T14:17:04"
+    "price": "$0.04918 ",
+    "24H change": "+2.85%",
+    "timestamp": "2022-11-14T14:29:22"
   },
   {
     "ID": "Hedera",
-    "market cap": "$1.06 B",
-    "price": "$0.04611 ",
-    "24H change": "-1.88%",
-    "timestamp": "2022-11-14T14:17:25"
+    "market cap": "$1.04 B",
+    "price": "$0.04548 ",
+    "24H change": "-2.89%",
+    "timestamp": "2022-11-14T14:29:34"
   },
   {
     "ID": "Trust Wallet Token",
     "market cap": "$1.01 B",
-    "price": "$2.41 ",
-    "24H change": "+45.95%",
-    "timestamp": "2022-11-14T14:17:42"
+    "price": "$2.43 ",
+    "24H change": "+43.00%",
+    "timestamp": "2022-11-14T14:29:46"
   },
   {
     "ID": "EOS",
-    "market cap": "$973.83 M",
-    "price": "$0.9302 ",
-    "24H change": "+2.53%",
-    "timestamp": "2022-11-14T14:17:57"
+    "market cap": "$966.2 M",
+    "price": "$0.9228 ",
+    "24H change": "+2.04%",
+    "timestamp": "2022-11-14T14:29:58"
   },
   {
-    "ID": "",
-    "market cap": "N/A",
-    "price": "$0 ",
-    "24H change": "+0.00%",
-    "timestamp": "2022-11-14T14:18:16"
+    "ID": "Pax Dollar",
+    "market cap": "$939.1 M",
+    "price": "$0.9931 ",
+    "24H change": "-0.78%",
+    "timestamp": "2022-11-14T14:30:10"
   }
 ]
