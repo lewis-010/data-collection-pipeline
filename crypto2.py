@@ -1,9 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from webdriver_manager.firefox import GeckoDriverManager
 import datetime
 import time
@@ -31,8 +31,11 @@ class Scraper():
         self.links = []
         self.dict_data = {}
         self.data_list = []
-        
-        self.driver = webdriver.Firefox(GeckoDriverManager().install())
+
+        self.options = webdriver.FirefoxOptions()
+        self.options.add_argument('--headless')
+        # self.options.add_argument("window-size=1920,1080")        
+        self.driver = webdriver.Firefox(executable_path = GeckoDriverManager().install())
 
  
     def accept_cookies(self) -> webdriver.Chrome:
