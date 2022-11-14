@@ -32,14 +32,7 @@ class Scraper():
         self.dict_data = {}
         self.data_list = []
         
-        self.options = webdriver.ChromeOptions()
-        self.options.add_argument("--headless")
-        self.options.add_argument("window-size=1920,1080")
-        self.options.add_argument("--disable-dev-shm-usage")
-        self.options.add_argument("--disable-setuid-sandbox") 
-        self.options.add_argument('--disable-gpu')
-        #self.options.add_argument("--no-sandbox")
-        self.driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options = self.options)
+        self.driver = webdriver.Firefox(executable_path=r'C:\Users\lcox1\Documents\VSCode\AiCore\geckodriver.exe')
 
  
     def accept_cookies(self) -> webdriver.Chrome:
