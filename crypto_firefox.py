@@ -32,8 +32,7 @@ class Scraper():
         self.data_list = []
 
         self.options = webdriver.FirefoxOptions()
-        self.options.add_argument('--headless')
-        # self.options.add_argument("window-size=1920,1080")        
+        self.options.add_argument('--headless')       
         self.driver = webdriver.Firefox(executable_path = GeckoDriverManager().install(), options = self.options)
 
  
@@ -81,7 +80,6 @@ class Scraper():
             A list of the links for the top 50 coins by market cap
         '''
         driver = self.driver
-        # table = WebDriverWait(driver,5).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
         time.sleep(3)
         table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
         self.links = [elem.get_attribute('href') for elem in table]
