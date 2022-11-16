@@ -129,7 +129,7 @@ class Scraper():
 
     def update_dataset(self):
         '''
-        Iteratively scrapes data from the list of links collected in the previous method.
+        Iteratively scrapes data from the list of links collected in a previous method.
 
         Returns
         -------
