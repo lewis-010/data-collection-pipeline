@@ -10,7 +10,7 @@ exceptiongroup     1.0.4
 h11                0.14.0
 idna               3.4
 outcome            1.2.0
-pip                22.2.2
+pip                22.3.1
 pycparser          2.21
 PySocks            1.7.1
 python-dotenv      0.21.0
