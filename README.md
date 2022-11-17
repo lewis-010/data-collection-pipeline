@@ -1,7 +1,7 @@
 # The Data Collection Project
 With the amount of data in our lives growing exponentially, data analytics has become a hugely important part of the way businesses and organisations are run. Therefore, companies need analysts who can scrape the web for data in sophisticated and efficient ways. Web scraping allows data to be collected and collated in specific formats from the internet which can then be used to help make informed business decisions. 
 
-This project will focus on the data collection aspect of a chosen website, [Crytpo.com](https://crypto.com/eea) using [Selenium](https://www.selenium.dev/) and [Chromedriver](https://chromedriver.chromium.org/) to automate the data scraping.
+This project will focus on the data collection aspect of a chosen website, [Crytpo.com](https://crypto.com/eea) using [Selenium](https://www.selenium.dev/) and [Geckodriver](https://github.com/mozilla/geckodriver/releases) for Firefox to automate the data scraping.
 
 ## Milestone 1
 - The data of interest on the chosen site was key information on the top 50 crytocurrencies by market cap, in particular their name, market cap, price and 24H change.
@@ -32,16 +32,16 @@ market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").tex
 dict_data['market cap'] = market_cap
 ```
 ## Milestone 4
-- The final step was to implement code that would iterate through the list of links and get the required data. 
-- This step was built outside of the scraper class and within an instance of the class (crypto).
+- The final step was to implement code that would iterate through the list of links and get the required data.
+- This method also executes the methods that get a list of links and get data from said links.  
 ```Python
 link_list = []
-link_list.extend(crypto.get_list_of_coin_links()) # list of links to top 50 coins by market cap
-data_list = []
-for link in range(50):
-    coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
-    coin = crypto.get_data(link=coin_link)
-    data_list.append(coin)
+link_list.extend(Scraper.get_list_of_coin_links(self))
+self.data_list = []
+    for link in range(50):
+        coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
+        coin = Scraper.get_data(self, link=coin_link)
+        self.data_list.append(coin)
 ```
 - Finally, the *data_list* was saved to a *raw_data* folder in .json file.
 - This allows for future analysis of the data.
@@ -49,3 +49,33 @@ for link in range(50):
 with open("raw_data/data.json", "w") as file:
     json.dump(data_list, file, indent=2)
 ```
+## Milestone 5
+- Once the code for the scraper had been written, the next stage was to create a file that would run all of the unit tests for main python file.  
+- Some of these tests focused on identifying changes in the HTML that occured when a method was executed, and using this change to assert if the method had been executed properly.
+    - For example, the *accept cookies* method is teted by asserting the style attribute of the cookies banner has changed to hidden.
+```Python
+def test_1_accept_cookies(self):
+    Crypto.accept_cookies()
+    cookies_banner = Crypto.driver.find_element(by=By.XPATH, value = "//*   [@id='onetrust-banner-sdk']")
+    style_attribute = cookies_banner.get_attribute('style')
+    self.assertIn('hidden', style_attribute)
+    print('The accept cookies button has been clicked.') 
+```
+- Other tests focused on asserting the returned variable from a method is of the right type.
+    - For instance, the *update dataset* method is tested by asserting all elements in the *data_list* are dictionaries.
+```Python
+def test_6_update_dataset(self):
+    Crypto.driver.back()
+    time.sleep(3)
+    Crypto.update_dataset()
+    self.assertIsInstance(Crypto.data_list, list)
+    print('update_dataset returns a list variable.')
+    count = len([ele for ele in Crypto.data_list if isinstance(ele, dict)])
+    print(f'The data_list has {count} elements that are all dictionaries.')
+    Crypto.quit()
+```
+## Milestone 6
+- The final part of this project was to take steps that allows the scraper to be run on the cloud and to create a CI/CD pipeline.
+- A docker image was created for the *crypto_firefox.py* file, the container for this was then pushed to [Dockerhub](https://www.docker.com/products/docker-hub/).
+    - A requirement for this was to adjust the code for the scraper so that it can run in "headless" mode without the GUI.
+    - The code for creating the docker image can be found in *Dockerfile*.
