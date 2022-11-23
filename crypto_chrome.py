@@ -108,8 +108,8 @@ class Scraper():
         '''
         self.dict_data = {}
         self.driver.get(link)
-        ID  = (self.driver.find_element(by=By.CSS_SELECTOR, value = ".css-1xvru47").text)
-        self.dict_data['ID'] = ID
+        id  = (self.driver.find_element(by=By.CSS_SELECTOR, value = ".css-1xvru47").text)
+        self.dict_data['ID'] = id
         market_cap = self.driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
         self.dict_data['market_cap'] = market_cap
         price = str(self.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/h2/span").text)
