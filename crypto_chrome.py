@@ -106,24 +106,17 @@ class Scraper():
             A dicitonary containing info on name, market cap, price, 24H change and 
             timestamp of data collection for each coin
         '''
-        driver = self.driver
         self.dict_data = {}
-        driver.get(link)
-        ID  = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1xvru47").text
+        self.driver.get(link)
+        ID  = (self.driver.find_element(by=By.CSS_SELECTOR, value = ".css-1xvru47").text)
         self.dict_data['ID'] = ID
-        print(ID)
-        market_cap = driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
-        self.dict_data['market cap'] = market_cap
-        print(market_cap)
-        time.sleep(1)
-        price = str(driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/h2/span").text)
+        market_cap = self.driver.find_element(by=By.CSS_SELECTOR, value = ".css-1c8c51m").text
+        self.dict_data['market_cap'] = market_cap
+        price = str(self.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/h2/span").text)
         new_price = price.replace("USD","")
-        self.dict_data['price'] = new_price  
-        print(new_price)
-        time.sleep(1)
-        change = driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").text
-        self.dict_data['24H change'] = change
-        print(change)
+        self.dict_data['price'] = new_price
+        change = self.driver.find_element(by=By.XPATH, value = "//*[@id='__next']/div[3]/div/div/div[3]/div[1]/div[1]/div[1]/div/div[1]/div/p[1]").text
+        self.dict_data['24H_change'] = change
         timestamp = (datetime.datetime.now()).strftime('%Y-%m-%dT%H:%M:%S')
         self.dict_data['timestamp'] = timestamp
         return self.dict_data
