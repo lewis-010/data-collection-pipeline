@@ -122,3 +122,14 @@ DevTools listening on ws://127.0.0.1:53611/devtools/browser/1cfe655f-517f-49a7-b
 1668597563662	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
 1668597563678	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
 1668597602432	Marionette	INFO	Stopped listening on port 53620
+1669223031039	geckodriver	INFO	Listening on 127.0.0.1:55799
+1669223034090	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "55800" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\lcox1\\AppData\\Local\\Temp\\rust_mozprofilet333lt"
+*** You are running in headless mode.
+1669223035331	Marionette	INFO	Marionette enabled
+1669223035344	Marionette	INFO	Listening on port 55809
+Read port: 55809
+WebDriver BiDi listening on ws://127.0.0.1:55800
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\lcox1\\AppData\\Local\\Temp\\rust_mozprofilet333lt\\search.json.mozlz4", (void 0)))
+1669223036673	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:55800/devtools/browser/853f2b5f-1be6-454f-b769-b024f805270d

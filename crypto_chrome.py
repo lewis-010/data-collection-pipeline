@@ -4,6 +4,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 import datetime
 import time
 import json
@@ -11,7 +12,7 @@ import json
 class Scraper():
     '''Contains various functions to perform webscraping operations on a given webpage'''
     
-    def __init__(self):
+    def __init__(self, driver = webdriver.Firefox or webdriver.Chrome):
         '''
         Attributes
         ----------
@@ -31,25 +32,29 @@ class Scraper():
         self.dict_data = {}
         self.data_list = []
         
-        self.options = webdriver.ChromeOptions()
-        self.options.add_argument("--headless")
-        self.options.add_argument("window-size=1920,1080")
-        self.options.add_argument("--disable-dev-shm-usage")
-        self.options.add_argument("--disable-setuid-sandbox") 
-        self.options.add_argument('--disable-gpu')
-        self.options.add_argument("--no-sandbox")
-        self.driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options = self.options)
+        self.driver = driver
+        if self.driver == webdriver.Chrome:
+            self.options = webdriver.ChromeOptions()
+            self.options.add_argument("--headless")
+            self.options.add_argument("window-size=1920,1080")
+            self.options.add_argument("--disable-dev-shm-usage")
+            self.options.add_argument("--disable-setuid-sandbox") 
+            self.options.add_argument('--disable-gpu')
+            self.options.add_argument("--no-sandbox")
+            self.driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options = self.options)
+        
+        else:
+            self.options = webdriver.FirefoxOptions()
+            self.options.add_argument('--headless')       
+            self.driver = webdriver.Firefox(executable_path = GeckoDriverManager().install(), options = self.options)
 
  
-    def accept_cookies(self) -> webdriver.Chrome:
+    def accept_cookies(self):
         '''Clicks the 'accept cookies' button on the cryto.com homepage to allow the webdriver to continue'''
-        driver = self.driver
-        driver.get('https://crypto.com/eea')
-        driver.maximize_window()
-        time.sleep(3)
+        self.driver.get('https://crypto.com/eea')
+        self.driver.maximize_window()
         try:
-            WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='onetrust-accept-btn-handler']"))).click()
-            time.sleep(3)
+            WebDriverWait(self.driver,5).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='onetrust-accept-btn-handler']"))).click()
         except TimeoutException:
             print('Loading timed out.')
 
