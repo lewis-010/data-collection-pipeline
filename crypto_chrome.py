@@ -132,11 +132,11 @@ class Scraper():
             A JSON file containing a list of dictionaries with the data scraped from each link.
         '''
         link_list = []
-        link_list.extend(Scraper.get_list_of_coin_links(self))
+        link_list.extend(self.get_list_of_coin_links(self))
         self.data_list = []
-        for link in range(50):
+        for link in range(len(link_list)):
             coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
-            coin = Scraper.get_data(self, link=coin_link)
+            coin = self.get_data(self, coin_link)
             self.data_list.append(coin)
             
         print(*self.data_list, sep = "\n")
@@ -146,8 +146,7 @@ class Scraper():
 
     def quit(self):
         '''Closes the browser window and stops the webdriver from running'''
-        driver = self.driver
-        driver.quit()
+        self.driver.quit()
         
 
 if __name__=="__main__":
