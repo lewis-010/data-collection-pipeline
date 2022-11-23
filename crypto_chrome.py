@@ -45,7 +45,7 @@ class Scraper():
         
         else:
             self.options = webdriver.FirefoxOptions()
-            #self.options.add_argument('--headless')       
+            self.options.add_argument('--headless')       
             self.driver = webdriver.Firefox(executable_path = GeckoDriverManager().install(), options = self.options)
 
  
