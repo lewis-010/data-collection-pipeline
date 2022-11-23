@@ -45,7 +45,7 @@ class Scraper():
         
         else:
             self.options = webdriver.FirefoxOptions()
-            self.options.add_argument('--headless')       
+            #self.options.add_argument('--headless')       
             self.driver = webdriver.Firefox(executable_path = GeckoDriverManager().install(), options = self.options)
 
  
@@ -61,21 +61,17 @@ class Scraper():
 
     def navigate_to_prices(self):
         '''Clicks the 'prices' tab on the crypo.com homepage to display the top 50 coins by market cap'''
-        driver = self.driver
         try:
-            WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='gatsby-focus-wrapper']/main/div[1]/div/div/div/div[1]/a/button"))).click()
-            time.sleep(3)
-            driver.switch_to.window(driver.window_handles[1]) # switch to new window (shows top 50 coins)
+            WebDriverWait(self.driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='gatsby-focus-wrapper']/main/div[1]/div/div/div/div[1]/a/button"))).click()
+            self.driver.switch_to.window(self.driver.window_handles[1]) # switch to new window (shows top 50 coins)
         except TimeoutException:
             print('Loading timed out.')
 
 
     def skip_tour(self):
         '''Clicks the 'skip tour' button on the price page to allow the webdriver to continue'''
-        driver = self.driver
         try:
-            WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]/div[2]/div[1]/div"))).click()
-            time.sleep(3)
+            WebDriverWait(self.driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@id='__next']/div[3]/div[2]/div[2]/div[1]/div"))).click()
         except TimeoutException:
             print('Loading timed out.')
 
@@ -89,14 +85,9 @@ class Scraper():
         links: list
             A list of the links for the top 50 coins by market cap
         '''
-        driver = self.driver
-        # table = WebDriverWait(driver,5).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".css-1v8x7dw [href]")))
-        time.sleep(3)
-        table = driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
+        table = self.driver.find_elements(by=By.CSS_SELECTOR, value=".css-1v8x7dw [href]")
         self.links = [elem.get_attribute('href') for elem in table]
-        # print(self.links)
         self.link_number = len(self.links)
-        print(f"There are {self.link_number} links.")
         return self.links
 
 
