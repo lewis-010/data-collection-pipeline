@@ -2,11 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from webdriver_manager.firefox import GeckoDriverManager
-import crypto_firefox
+import crypto
 import time
 import unittest
 
-Crypto = crypto_firefox.Scraper()
+Crypto = crypto.Scraper()
 
 class TestCrypto(unittest.TestCase):
 
