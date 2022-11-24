@@ -76,6 +76,6 @@ def test_6_update_dataset(self):
 ```
 ## Milestone 6
 - The final part of this project was to take steps that allows the scraper to be run on the cloud and to create a CI/CD pipeline.
-- A docker image was created for the *crypto_firefox.py* file, the container for this was then pushed to [Dockerhub](https://www.docker.com/products/docker-hub/).
+- A docker image was created for the *crypto.py* file, the container for this was then pushed to [Dockerhub](https://www.docker.com/products/docker-hub/).
     - A requirement for this was to adjust the code for the scraper so that it can run in "headless" mode without the GUI.
     - The code for creating the docker image can be found in *Dockerfile*.
