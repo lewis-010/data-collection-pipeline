@@ -7,7 +7,6 @@ import time
 import unittest
 
 
-
 class TestCrypto(unittest.TestCase):
 
     def setUp(self):
