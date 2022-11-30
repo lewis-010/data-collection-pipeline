@@ -131,11 +131,11 @@ class Scraper():
             A JSON file containing a list of dictionaries with the data scraped from each link.
         '''
         link_list = []
-        link_list.extend(self.get_list_of_coin_links(self))
+        link_list.extend(self.get_list_of_coin_links())
         self.data_list = []
         for link in range(len(link_list)):
             coin_link = link_list[link] # link to a cryptocurrency (e.g., ethereum) details page where data is scraped
-            coin = self.get_data(self, coin_link)
+            coin = self.get_data(coin_link)
             self.data_list.append(coin)
             
         print(*self.data_list, sep = "\n")
